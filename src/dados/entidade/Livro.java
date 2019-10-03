@@ -1,10 +1,17 @@
 package dados.entidade;
 
 import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Livro {
 
-    private Integer codigo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String titulo;
     private Integer ano;
     private String genero;
@@ -53,13 +60,15 @@ public class Livro {
         this.ano = ano;
     }
 
-    public Integer getCodigo() {
-        return codigo;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
+    public void setId(Integer id) {
+        this.id = id;
     }
+
+   
 
     public Integer getVolume() {
         return volume;

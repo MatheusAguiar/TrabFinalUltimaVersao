@@ -1,6 +1,10 @@
 package dados.entidade;
 
-public class Usuario extends Pessoa{
+import javax.persistence.Entity;
+
+@Entity
+public class Usuario extends Pessoa {
+
     private Boolean ativo;
     private Integer codigoCadastro;
 
@@ -11,7 +15,7 @@ public class Usuario extends Pessoa{
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
-    
+
     public Integer getCodigoCadastro() {
         return codigoCadastro;
     }

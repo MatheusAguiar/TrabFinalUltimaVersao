@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Emprestimo {
     
-    private Integer codigo;
+    private Integer id;
     private String dataretirada;
     private String dataDevolucao;
     private String observacao;
@@ -12,14 +12,14 @@ public class Emprestimo {
     private Exemplar exemplar;
     private Usuario usuario;
 
-    public Integer getCodigo() {
-        return codigo;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+   
     
     public String getDataretirada() {
         return dataretirada;
@@ -75,9 +75,6 @@ public class Emprestimo {
     
     public void cadastraEmprestimo (Livro livro, Usuario usuario){}
     
-    //Metodos de listagem - penso que 3 esta ok
-    //.
-    //.
-    //.
+  
 }
 

@@ -1,8 +1,11 @@
 package dados.entidade;
 
 import java.util.Date;
+import javax.persistence.Entity;
 
-public class Funcionario extends Pessoa{
+@Entity
+public class Funcionario extends Pessoa {
+
     private String senhaacesso;
     private Integer codigoContrato;
     private Date fimContrato;
@@ -32,9 +35,11 @@ public class Funcionario extends Pessoa{
     }
     //Implementar
 
-    public Boolean validarLogUsuario(Usuario usuario){
+    public Boolean validarLogUsuario(Usuario usuario) {
         return usuario.getAtivo() == true;
     }
-    
-    public Integer calculaQtdEmprestimo(Usuario usuario){return 1;}
+
+    public Integer calculaQtdEmprestimo(Usuario usuario) {
+        return 1;
+    }
 }
