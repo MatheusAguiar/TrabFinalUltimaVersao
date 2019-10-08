@@ -23,4 +23,6 @@ public class Usuario extends Pessoa {
     public void setCodigoCadastro(Integer codigoCadastro) {
         this.codigoCadastro = codigoCadastro;
     }
+    
+    
 }

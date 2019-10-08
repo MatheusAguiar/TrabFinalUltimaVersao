@@ -1,9 +1,11 @@
 package dados.entidade;
 
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Exemplar {
@@ -11,6 +13,7 @@ public class Exemplar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @ManyToOne(optional=false)
     private Livro livro;
     private Short edicao;
     private Integer tombo;
@@ -66,6 +69,33 @@ public class Exemplar {
     public void setNumExemplar(Integer numExemplar) {
         this.numExemplar = numExemplar;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Exemplar other = (Exemplar) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
     
     @Override
     
