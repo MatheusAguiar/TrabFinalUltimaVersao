@@ -7,6 +7,7 @@ package Testes;
 
 import UTIL.JPAUtil;
 import dados.entidade.Funcionario;
+import dados.entidade.Livro;
 import javax.persistence.EntityManager;
 
 /**
@@ -18,14 +19,14 @@ public class TestaRelacionamentos {
      public static void main(String[] args) {
         
         //Criando um objeto ator
-        Funcionario f1 = new Funcionario();
-        f1.setNome("Matheus");
-        f1.setCpf("12048995683");
-        f1.setEndereco("Rua A");
-        f1.setEmail("matsaguiar");
-        f1.setTelefone("37441271");
-        f1.setSenhaacesso("123");
-        f1.setCodigoContrato(123);       
+        Livro f1 = new Livro();
+        f1.setAno(1900);
+        f1.setAutor("ABC");
+        f1.setEditora("Rua A");
+        f1.setGenero("matsaguiar");
+        f1.setTitulo("Eu");
+        f1.setVolume(12);
+              
         
         
         //Pegando o gerenciador de acesso ao BD
