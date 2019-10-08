@@ -11,12 +11,12 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!-- Aqui devem ser listadas todas as entidades criadas -->
-        <class>dados.entidades.Usuario</class>
-        <class>dados.entidades.Pessoa</class>
-        <class>dados.entidades.Livro</class>
-		<class>dados.entidades.Funcionario</class>
-		<class>dados.entidades.Exemplar</class>
-		<class>dados.entidades.Emprestimo</class>
+        <class>dados.entidade.Usuario</class>
+        <class>dados.entidade.Pessoa</class>
+        <class>dados.entidade.Livro</class>
+	<class>dados.entidade.Funcionario</class>
+	<class>dados.entidade.Exemplar</class>
+	<class>dados.entidade.Emprestimo</class>
          
 
         <properties>    
