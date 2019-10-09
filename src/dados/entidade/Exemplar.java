@@ -13,9 +13,11 @@ public class Exemplar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
     @ManyToOne(optional=false)
     private Livro livro;
-    private Short edicao;
+    
+    private Integer edicao;
     private Integer tombo;
     private Boolean disponivel;
     private Integer numExemplar;
@@ -38,11 +40,11 @@ public class Exemplar {
         this.livro = livro;
     }
 
-    public Short getEdicao() {
+    public Integer getEdicao() {
         return edicao;
     }
 
-    public void setEdicao(Short edicao) {
+    public void setEdicao(Integer edicao) {
         this.edicao = edicao;
     }
 

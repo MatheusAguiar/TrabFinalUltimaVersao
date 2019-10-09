@@ -13,13 +13,17 @@ public class Emprestimo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
     private String dataretirada;
     private String dataDevolucao;
     private String observacao;
+    
     @ManyToOne(optional=false)
     private Funcionario funcionario;
+    
     @ManyToOne(optional=false)
     private Exemplar exemplar;
+    
     @ManyToOne(optional=false)
     private Usuario usuario;
 

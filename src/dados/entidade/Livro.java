@@ -1,6 +1,5 @@
 package dados.entidade;
 
-import java.util.ArrayList;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,18 +7,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Livro {
+public class Livro {    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id;    
+
     private String titulo;
+
     private Integer ano;
+
     private String genero;
+
     private String autor;
+
     private Integer volume;
+
     private String editora;
-    
+
+   
 
     public String getGenero() {
         return genero;
@@ -36,8 +42,6 @@ public class Livro {
     public void setAutor(String autor) {
         this.autor = autor;
     }
-
-   
 
     public String getTitulo() {
         return titulo;
@@ -63,8 +67,6 @@ public class Livro {
         this.id = id;
     }
 
-   
-
     public Integer getVolume() {
         return volume;
     }
@@ -81,25 +83,7 @@ public class Livro {
         this.editora = editora;
     }
 
-    /* public Integer obterDisponivel() {
-        for (Exemplar e : getExemplar()) {
-            if (e.getDisponivel()) {
-                return e.getNumExemplar();
-            }
-        }
-        return 0;
-    }
-
-  
-
-    public void setExemplares(ArrayList<Exemplar> exemplares) {
-        this.exemplares = exemplares;
-        if (exemplares.isEmpty()) {
-            System.out.println("Lista vazia");
-        }
-    }
-     */
-
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -124,9 +108,7 @@ public class Livro {
         }
         return true;
     }
-    
-    
-    
+
     @Override
 
     public String toString() {

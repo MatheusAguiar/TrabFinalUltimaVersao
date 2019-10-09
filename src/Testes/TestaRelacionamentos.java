@@ -1,33 +1,60 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Testes;
 
-import UTIL.JPAUtil;
-import dados.entidade.Funcionario;
 import dados.entidade.Livro;
-import javax.persistence.EntityManager;
+import javax.persistence.*;
+import UTIL.JPAUtil;
+import dados.entidade.Emprestimo;
+import dados.entidade.Exemplar;
+import dados.entidade.Funcionario;
+import dados.entidade.Usuario;
 
-/**
- *
- * @author mats-
- */
 public class TestaRelacionamentos {
     
-     public static void main(String[] args) {
+    public static void main(String[] args) {
         
         //Criando um objeto ator
-        Livro f1 = new Livro();
-        f1.setAno(1900);
-        f1.setAutor("ABC");
-        f1.setEditora("Rua A");
-        f1.setGenero("matsaguiar");
-        f1.setTitulo("Eu");
-        f1.setVolume(12);
-              
+        Usuario u1 = new Usuario();
+        u1.setAtivo(true);
+        u1.setCodigoCadastro(123);
+        u1.setCpf("123456");
+        u1.setEmail("amsdmad");
+        u1.setEndereco("asdasd");
+        u1.setNome("Mars");
+        u1.setTelefone("37441217");
         
+         Funcionario f1 = new Funcionario();
+        f1.setCodigoContrato(123);
+        f1.setSenhaacesso("123");
+        f1.setFimContrato("2010-10-10");
+        f1.setCpf("123456");
+        f1.setEmail("amsdmad");
+        f1.setEndereco("asdasd");
+        f1.setNome("Mars");
+        f1.setTelefone("37441217");
+        
+        Livro l1 = new Livro();
+        l1.setAno(1900);
+        l1.setAutor("Eu");
+        l1.setEditora("RSRS");
+        l1.setGenero("Roma");
+        l1.setTitulo("Casa");
+        l1.setVolume(1);
+        
+        Exemplar e1 = new Exemplar();
+        e1.setDisponivel(true);
+        e1.setEdicao(1);
+        e1.setLivro(l1);
+        e1.setNumExemplar(2);
+        e1.setTombo(1);
+        
+        Emprestimo emp1 = new Emprestimo();
+        emp1.setDataDevolucao("2010-10-10");
+        emp1.setDataretirada("2010-10-03");
+        emp1.setExemplar(e1);
+        emp1.setFuncionario(f1);
+        emp1.setObservacao("nenhuma");
+        emp1.setUsuario(u1);                
+                                                
         
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -36,8 +63,12 @@ public class TestaRelacionamentos {
         gerenciador.getTransaction().begin();
         
         //Mandando persistir o objeto
+        gerenciador.persist(u1);
         gerenciador.persist(f1);
-        //gerenciador.persist(a2);
+        gerenciador.persist(l1);
+        gerenciador.persist(e1);
+        gerenciador.persist(emp1);
+        
         
         //Finalizo a transação
         gerenciador.getTransaction().commit();

@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 public class JPAUtil {
     
     private static EntityManagerFactory fabrica 
-            = Persistence.createEntityManagerFactory("biblioteca");
+            = Persistence.createEntityManagerFactory("teste");
     
     public static EntityManager getGerenciador(){
         return fabrica.createEntityManager();
