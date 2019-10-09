@@ -17,6 +17,8 @@ public class Usuario  {
     private String endereco;
     private String email;
     private String telefone;
+    private Boolean ativo;
+    private Integer codigoCadastro;
 
     public int getId() {
         return id;
@@ -65,8 +67,7 @@ public class Usuario  {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    private Boolean ativo;
-    private Integer codigoCadastro;
+   
 
     public Boolean getAtivo() {
         return ativo;
