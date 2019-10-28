@@ -18,7 +18,9 @@
         <menus>
           <Menu mnemonicParsing="false" text="Cadastro">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaCadastroExemplar" text="Exemplar" />
+                  <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaCadastroUsuario" text="Usuário" />
+              <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaCadastroLivro" text="Livro" />
             </items>
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
@@ -30,7 +32,10 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Consultas">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+                  <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaConsultaLivro" text="Livros" />
+                  <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaConsultaExemplar" text="Exemplares" />
+                  <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaConsultaUsuario" text="Usuários" />
+              <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaConsultaFunc" text="Funcionários" />
             </items>
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
@@ -40,10 +45,7 @@
                   </ImageView>
                </graphic>
           </Menu>
-          <Menu mnemonicParsing="false" text="Empréstimos">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
+          <Menu mnemonicParsing="false" onAction="#AbrirJanelaEmprestimo" text="Empréstimos">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
