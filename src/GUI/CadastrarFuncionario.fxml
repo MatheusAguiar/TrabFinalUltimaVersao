@@ -55,7 +55,7 @@
             <Font name="Arial Bold Italic" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="btCadastro" layoutX="307.0" layoutY="374.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="103.0" text="Cadastrar">
+      <Button fx:id="btCadastro" layoutX="307.0" layoutY="374.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="103.0" text="Cadastrar">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                <image>

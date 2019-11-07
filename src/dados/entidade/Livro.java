@@ -25,6 +25,22 @@ public class Livro {
 
     private String editora;
 
+    public Livro() {
+        
+    }
+
+    public Livro(Integer id, String titulo, Integer ano, String genero, String autor, Integer volume, String editora) {
+        this.id = id;
+        this.titulo = titulo;
+        this.ano = ano;
+        this.genero = genero;
+        this.autor = autor;
+        this.volume = volume;
+        this.editora = editora;
+    }
+
+   
+
    
 
     public String getGenero() {

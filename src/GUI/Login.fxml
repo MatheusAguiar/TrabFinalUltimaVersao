@@ -15,10 +15,10 @@
         <URL value="@login.css" />
     </stylesheets>
    <children>
-      <TextField layoutX="330.0" layoutY="99.0" prefHeight="25.0" prefWidth="186.0" />
-      <PasswordField layoutX="330.0" layoutY="142.0" prefHeight="25.0" prefWidth="186.0" />
-      <Button fx:id="btAcessar" layoutX="271.0" layoutY="209.0" mnemonicParsing="false" onAction="#clickAcessar" prefHeight="55.0" prefWidth="118.0" text="      ACESSAR" />
-      <Button layoutX="405.0" layoutY="209.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="130.0" text=" CADASTRAR">
+      <TextField fx:id="txtUsuario" layoutX="330.0" layoutY="99.0" prefHeight="25.0" prefWidth="186.0" />
+      <PasswordField fx:id="txtSenha" layoutX="330.0" layoutY="142.0" prefHeight="25.0" prefWidth="186.0" />
+      <Button fx:id="btnAcessar" layoutX="271.0" layoutY="209.0" mnemonicParsing="false" onAction="#clickAcessar" prefHeight="55.0" prefWidth="118.0" text="      ACESSAR" />
+      <Button fx:id="btnCadastrar" layoutX="405.0" layoutY="209.0" mnemonicParsing="false" onAction="#CadastrarFunc" prefHeight="55.0" prefWidth="130.0" text=" CADASTRAR">
          <graphic>
             <ImageView fitHeight="34.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
