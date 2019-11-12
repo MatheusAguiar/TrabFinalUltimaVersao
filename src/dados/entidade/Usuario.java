@@ -18,7 +18,7 @@ public class Usuario  {
     private String email;
     private String telefone;
     private Boolean ativo;
-    private Integer codigoCadastro;
+    private Integer codigoContrato;
 
     public int getId() {
         return id;
@@ -77,12 +77,12 @@ public class Usuario  {
         this.ativo = ativo;
     }
 
-    public Integer getCodigoCadastro() {
-        return codigoCadastro;
+    public Integer getCodigoContrato() {
+        return codigoContrato;
     }
 
-    public void setCodigoCadastro(Integer codigoCadastro) {
-        this.codigoCadastro = codigoCadastro;
+    public void setCodigoContrato(Integer codigoContrato) {
+        this.codigoContrato = codigoContrato;
     }
     
     

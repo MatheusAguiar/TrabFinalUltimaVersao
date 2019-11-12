@@ -149,7 +149,14 @@ public class MenuController implements Initializable {
     @FXML
     private void AbrirJanelaEmprestimo(ActionEvent event) throws IOException {
         
-         Stage s2 = new Stage();
+         
+        
+    }
+
+    @FXML
+    private void AbrirJanelaEmprestimo1(ActionEvent event) throws IOException {
+        
+        Stage s2 = new Stage();
         s2.initModality(Modality.APPLICATION_MODAL);
         Parent root = FXMLLoader.load(getClass().getResource("/GUI/JanelaEmprestimo.fxml"));
         Scene scene = new Scene(root);
@@ -158,7 +165,6 @@ public class MenuController implements Initializable {
         s2.setTitle("Empréstimos"); 
         s2.setScene(scene);
         s2.show();
-        
     }
     
 }

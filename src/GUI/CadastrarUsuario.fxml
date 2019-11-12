@@ -44,21 +44,21 @@
             <Font name="Arial Bold Italic" size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="104.0" layoutY="80.0" prefHeight="25.0" prefWidth="213.0" />
-      <TextField layoutX="105.0" layoutY="272.0" prefHeight="25.0" prefWidth="213.0" />
-      <TextField layoutX="104.0" layoutY="226.0" prefHeight="25.0" prefWidth="213.0" />
-      <TextField layoutX="104.0" layoutY="177.0" prefHeight="25.0" prefWidth="327.0" />
-      <TextField layoutX="104.0" layoutY="128.0" prefHeight="25.0" prefWidth="213.0" />
-      <TextField layoutX="161.0" layoutY="40.0" prefHeight="25.0" prefWidth="50.0" />
-      <RadioButton layoutX="104.0" layoutY="324.0" mnemonicParsing="false" text="Sim">
+      <TextField fx:id="txtNome" layoutX="104.0" layoutY="80.0" prefHeight="25.0" prefWidth="213.0" />
+      <TextField fx:id="txtTelefone" layoutX="105.0" layoutY="272.0" prefHeight="25.0" prefWidth="213.0" />
+      <TextField fx:id="txtEmail" layoutX="104.0" layoutY="226.0" prefHeight="25.0" prefWidth="213.0" />
+      <TextField fx:id="txtEndereco" layoutX="104.0" layoutY="177.0" prefHeight="25.0" prefWidth="327.0" />
+      <TextField fx:id="txtCpf" layoutX="104.0" layoutY="128.0" prefHeight="25.0" prefWidth="213.0" />
+      <TextField fx:id="txtCodigo" layoutX="161.0" layoutY="40.0" prefHeight="25.0" prefWidth="50.0" />
+      <RadioButton fx:id="rbSim" layoutX="104.0" layoutY="324.0" mnemonicParsing="false" text="Sim">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></RadioButton>
-      <RadioButton layoutX="164.0" layoutY="324.0" mnemonicParsing="false" text="Não">
+      <RadioButton fx:id="rbNao" layoutX="164.0" layoutY="324.0" mnemonicParsing="false" text="Não">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></RadioButton>
-      <Button layoutX="290.0" layoutY="333.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="115.0" text="Cadastrar">
+      <Button fx:id="btnCadastrar" layoutX="290.0" layoutY="333.0" mnemonicParsing="false" onAction="#CadastrarUsuarios" prefHeight="40.0" prefWidth="115.0" text="Cadastrar">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -67,7 +67,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="418.0" layoutY="333.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="85.0" text="Voltar">
+      <Button fx:id="btnVoltar" layoutX="418.0" layoutY="333.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="85.0" text="Voltar">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                <image>

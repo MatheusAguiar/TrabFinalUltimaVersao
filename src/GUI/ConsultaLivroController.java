@@ -70,12 +70,7 @@ public class ConsultaLivroController implements Initializable {
 
  private void configurarTabela() {
 
-        //Dizer de onde a coluna vai pegar o valor para
-        //exibir, basta dizer o nome do metodo get
-        //que deve ser chamado para cada coluna
-        // A string entre parênteses é o nome do atributo
-        // que vc deseja chamar o get (quase sempre)
-        //import javafx.scene.control.cell.PropertyValueFactory;
+      
         id.setCellValueFactory(
                 new PropertyValueFactory("id"));
         titulo.setCellValueFactory(
