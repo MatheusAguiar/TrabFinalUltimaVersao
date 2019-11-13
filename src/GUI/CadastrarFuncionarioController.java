@@ -75,7 +75,7 @@ public class CadastrarFuncionarioController implements Initializable {
             servico.salvar(func);
 
             //Exibindo mensagem
-            mensagemSucesso("Livro salvo com sucesso!");
+            mensagemSucesso("Funcionário salvo com sucesso!");
             limparCampos();
     }
     
