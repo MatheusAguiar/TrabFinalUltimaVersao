@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -54,6 +55,24 @@ public class ConsultaLivroController implements Initializable {
      private Livro selecionado;
      
       private LivroServico servico = new LivroServico();
+    @FXML
+    private TextField txtId;
+    @FXML
+    private TextField txtTitulo;
+    @FXML
+    private TextField txtAno;
+    @FXML
+    private TextField txtGenereo;
+    @FXML
+    private TextField txtAutor;
+    @FXML
+    private TextField txtVolume;
+    @FXML
+    private TextField txtEditora;
+    @FXML
+    private Button btnEditar;
+    @FXML
+    private Button btnExcluir;
 
     /**
      * Initializes the controller class.
@@ -64,7 +83,7 @@ public class ConsultaLivroController implements Initializable {
           configurarTabela();
 
         //Carregue a lista de atores na tabela
-        listarAtoresTabela();
+        listarLivrosTabela();
         // TODO
     }
 
@@ -88,7 +107,7 @@ public class ConsultaLivroController implements Initializable {
 
     }//configurarTabela    
  
-  private void listarAtoresTabela() {
+  private void listarLivrosTabela() {
         //Limpando quaisquer dados anteriores
         dados.clear();
 
@@ -103,5 +122,6 @@ public class ConsultaLivroController implements Initializable {
         tabelaConsultaLivro.setItems(dados);
 
     }
+
     
 }

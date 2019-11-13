@@ -60,7 +60,7 @@
       <Label layoutX="704.0" layoutY="365.0" text="Ativo" />
       <RadioButton layoutX="771.0" layoutY="365.0" mnemonicParsing="false" text="Sim" />
       <RadioButton layoutX="822.0" layoutY="365.0" mnemonicParsing="false" text="Não" />
-      <Button fx:id="btnEditar" layoutX="1036.0" layoutY="361.0" mnemonicParsing="false" onAction="#editar" prefHeight="25.0" prefWidth="71.0" text="Editar" />
-      <Button fx:id="btnExcluir" layoutX="1114.0" layoutY="361.0" mnemonicParsing="false" onAction="#excluir" prefHeight="25.0" prefWidth="71.0" text="Excluir" />
+      <Button fx:id="btnEditar" layoutX="1036.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Editar" />
+      <Button fx:id="btnExcluir" layoutX="1114.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Excluir" />
    </children>
 </AnchorPane>

@@ -7,13 +7,19 @@ package GUI;
 
 import DAO.ExemplarDAO;
 import DAO.LivroDAO;
+import Servicos.ExemplarServico;
+import Servicos.LivroServico;
+import dados.entidade.Exemplar;
 import dados.entidade.Livro;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
@@ -27,7 +33,7 @@ import javafx.scene.control.TextField;
 public class CadastrarExemplarController implements Initializable {
 
     @FXML
-    private ComboBox<?> cboLivro;
+    private ComboBox<Livro> cboLivro;
     @FXML
     private TextField txtEdicao;
     @FXML
@@ -40,6 +46,10 @@ public class CadastrarExemplarController implements Initializable {
     private RadioButton rbSim;
     @FXML
     private RadioButton rbNao;
+    
+     private LivroServico servico = new LivroServico();
+     private ExemplarServico servico1 = new ExemplarServico();
+     
 
     /**
      * Initializes the controller class.
@@ -51,20 +61,58 @@ public class CadastrarExemplarController implements Initializable {
 
     @FXML
     private void salvar(ActionEvent event) {
+        
+         Exemplar ex = new Exemplar();
+            ex.setLivro((Livro) cboLivro.getValue());
+            ex.setEdicao(Integer.valueOf(txtEdicao.getText()));
+            ex.setTombo(Integer.valueOf(txtTombo.getText()));
+            if (rbSim.isSelected())
+            {
+
+                ex.setDisponivel(true);
+            }
+
+            if (rbNao.isSelected())
+            {
+
+                ex.setDisponivel(false);
+            }
+
+            ex.setNumExemplar(Integer.valueOf(txtExemplares.getText()));
+
+           servico1.salvar(ex);
+
+            //Exibindo mensagem
+            mensagemSucesso("Exemplar salvo com sucesso!");
+            limparCampos();
+        
+        
     }
     
     private void preencherListaLivro() 
     {
 
-        LivroDAO exemdao = new LivroDAO();
+       List<Livro> livros = servico.listar();
 
-        for (Livro liv : exemdao.listar())
-        {
-
-            cboLivro.setItems((ObservableList)liv);
-
-        }
-
+        cboLivro.setItems(FXCollections.observableArrayList(livros));
+    
     }
     
+    public void limparCampos(){
+
+          //Limpando o form
+         txtEdicao.setText("");
+        txtTombo.setText("");
+        txtExemplares.setText("");
+
+}
+
+    public void mensagemSucesso(String m) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("SUCESSO!");
+        alerta.setHeaderText(null);
+        alerta.setContentText(m);
+        alerta.showAndWait();
+    }
+
 }

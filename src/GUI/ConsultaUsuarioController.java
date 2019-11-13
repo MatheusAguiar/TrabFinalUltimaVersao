@@ -67,7 +67,7 @@ public class ConsultaUsuarioController implements Initializable {
 
         configurarTabela();
 
-        listarAtoresTabela();
+        listarUsuariosTabela();
 
     }
 
@@ -93,7 +93,7 @@ public class ConsultaUsuarioController implements Initializable {
 
     }//configurarTabela    
     
-     private void listarAtoresTabela() {
+     private void listarUsuariosTabela() {
         //Limpando quaisquer dados anteriores
         dados.clear();
 

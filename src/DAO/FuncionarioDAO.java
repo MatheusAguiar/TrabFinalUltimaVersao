@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import javax.persistence.TypedQuery;
 
 public class FuncionarioDAO {
@@ -68,6 +69,20 @@ public class FuncionarioDAO {
         }//fecha finally
 
         return check;
+
+    }
+    
+     public List<Funcionario> listar() {
+
+        //Pegando o gerenciador de acesso ao BD
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+
+        //Criando a consulta ao BD
+        TypedQuery consulta = gerenciador.createQuery(
+                "Select funcionario from Funcionario funcionario", Funcionario.class);
+
+        //Retornar a lista de atores
+        return consulta.getResultList();
 
     }
 
