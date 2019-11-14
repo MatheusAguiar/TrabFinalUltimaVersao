@@ -9,6 +9,7 @@ import DAO.ExemplarDAO;
 import DAO.LivroDAO;
 import Servicos.ExemplarServico;
 import Servicos.LivroServico;
+import com.jfoenix.controls.JFXTextField;
 import dados.entidade.Exemplar;
 import dados.entidade.Livro;
 import java.net.URL;
@@ -35,11 +36,11 @@ public class CadastrarExemplarController implements Initializable {
     @FXML
     private ComboBox<Livro> cboLivro;
     @FXML
-    private TextField txtEdicao;
+    private JFXTextField txtEdicao;
     @FXML
-    private TextField txtTombo;
+    private JFXTextField txtTombo;
     @FXML
-    private TextField txtExemplares;
+    private JFXTextField txtExemplares;
     @FXML
     private Button btnCadastrar;
     @FXML
