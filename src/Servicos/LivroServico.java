@@ -28,14 +28,15 @@ public class LivroServico {
       
     
     
-    public void editar(Livro a){
+    public void editar(Livro livro){
         
-        //Qualquer regra de negócio (se aplicável)
+        dao.editar(livro);
         
+    }
+    
+    public void excluir(Livro livro){
         
-        //Mandar a DAO atualizar os dados no BD
-        //dao.editar(a);
-        
+        dao.excluir(livro);
     }
     
 }

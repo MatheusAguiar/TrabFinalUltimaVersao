@@ -6,20 +6,26 @@
 package GUI;
 
 import Servicos.LivroServico;
+import com.jfoenix.controls.JFXTreeTableColumn;
+
 import dados.entidade.Livro;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -48,13 +54,13 @@ public class ConsultaLivroController implements Initializable {
     private TableColumn volume;
     @FXML
     private TableColumn editora;
-    
-     private ObservableList<Livro> dados
+
+    private ObservableList<Livro> dados
             = FXCollections.observableArrayList();
-     
-     private Livro selecionado;
-     
-      private LivroServico servico = new LivroServico();
+
+    private Livro selecionado;
+
+    private LivroServico servico = new LivroServico();
     @FXML
     private TextField txtId;
     @FXML
@@ -79,17 +85,16 @@ public class ConsultaLivroController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-          configurarTabela();
+
+        configurarTabela();
 
         //Carregue a lista de atores na tabela
         listarLivrosTabela();
         // TODO
     }
 
- private void configurarTabela() {
+    private void configurarTabela() {
 
-      
         id.setCellValueFactory(
                 new PropertyValueFactory("id"));
         titulo.setCellValueFactory(
@@ -106,8 +111,8 @@ public class ConsultaLivroController implements Initializable {
                 new PropertyValueFactory("editora"));
 
     }//configurarTabela    
- 
-  private void listarLivrosTabela() {
+
+    private void listarLivrosTabela() {
         //Limpando quaisquer dados anteriores
         dados.clear();
 
@@ -123,5 +128,119 @@ public class ConsultaLivroController implements Initializable {
 
     }
 
-    
+    @FXML
+    private void mouseClick(MouseEvent event) {
+
+        //Pegar o livro que foi selecionado na tabela
+        selecionado = tabelaConsultaLivro.getSelectionModel()
+                .getSelectedItem();
+
+        //Se tem algum livro selecionado
+        if (selecionado != null) { //tem livro selecionado
+            //Pegar os dados do ator e jogar nos campos do
+            //formulario
+            txtId.setText(
+                    String.valueOf(selecionado.getId()));
+            txtTitulo.setText(selecionado.getTitulo());
+            txtAno.setText(String.valueOf(selecionado.getAno()));
+            txtGenereo.setText(selecionado.getGenero());
+            txtAutor.setText(selecionado.getAutor());
+            txtVolume.setText(String.valueOf(selecionado.getVolume()));
+            txtEditora.setText(selecionado.getEditora());
+
+        } else { //não tem ator selecionado na tabela
+            mensagemErro("Selecione um livro.");
+        }
+    }
+
+    public void mensagemErro(String m) {
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setTitle("ERRO!");
+        alerta.setHeaderText(null);
+        alerta.setContentText(m);
+        alerta.showAndWait();
+    }
+
+    @FXML
+    private void editar(ActionEvent event) {
+
+        Optional<ButtonType> btn
+                = mensagemDeConfirmacao("Deseja mesmo salvar as alterações?",
+                        "EDITAR");
+
+        //Se o botão OK foi pressionado
+        if (btn.get() == ButtonType.OK) {
+            //Pegar os novos dados do formulário e
+            //atualizar o livro
+            selecionado.setId(Integer.valueOf(txtId.getText()));
+            selecionado.setTitulo(txtTitulo.getText());
+            selecionado.setAno(Integer.valueOf(txtAno.getText()));
+            selecionado.setGenero(txtGenereo.getText());
+            selecionado.setAutor(txtAutor.getText());
+            selecionado.setVolume(Integer.valueOf(txtVolume.getText()));
+            selecionado.setEditora(txtEditora.getText());
+
+            //Mandando pra camada de serviço salvar as alterações
+            servico.editar(selecionado);
+
+            //Exibindo mensagem
+            mensagemSucesso("Livro atualizado com sucesso!");
+
+            //Chama o metodo para atualizar a tabela
+            listarLivrosTabela();
+        }
+    }
+
+    private Optional<ButtonType> mensagemDeConfirmacao(
+            String mensagem, String titulo) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+        return alert.showAndWait();
+    }
+
+    public void mensagemSucesso(String m) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("SUCESSO!");
+        alerta.setHeaderText(null);
+        alerta.setContentText(m);
+        alerta.showAndWait();
+    }
+
+    @FXML
+    private void excluir(ActionEvent event) {
+
+        //Pegar o ator que foi selecionado na tabela
+        selecionado = tabelaConsultaLivro.getSelectionModel()
+                .getSelectedItem();
+
+        //Verifico se tem ator selecionado
+        if (selecionado != null) { //existe ator selecionado
+
+            //Pegando a resposta da confirmacao do usuario
+            Optional<ButtonType> btn
+                    = mensagemDeConfirmacao("Deseja mesmo excluir?",
+                            "EXCLUIR");
+
+            //Verificando se apertou o OK
+            if (btn.get() == ButtonType.OK) {
+
+                //Manda para a camada de serviço excluir
+                servico.excluir(selecionado);
+
+                //mostrar mensagem de sucesso
+                mensagemSucesso("Livro excluído com sucesso");
+
+                //Atualizar a tabela
+                listarLivrosTabela();
+
+            }
+
+        } else {
+            mensagemErro("Selecione um livro.");
+        }
+
+    }
+
 }

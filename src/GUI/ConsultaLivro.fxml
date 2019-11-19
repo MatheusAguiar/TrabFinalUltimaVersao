@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -24,8 +24,6 @@
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPesquisaLivro" layoutX="14.0" layoutY="80.0" prefHeight="32.0" prefWidth="506.0" />
-      <Button fx:id="btnPesquisar" layoutX="525.0" layoutY="80.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="116.0" text="Pesquisar" />
       <Label layoutX="696.0" layoutY="80.0" text="Dados  Livros">
          <font>
             <Font name="Arial Black" size="14.0" />
@@ -38,25 +36,27 @@
       <Label layoutX="694.0" layoutY="293.0" text="Autores" />
       <Label layoutX="694.0" layoutY="323.0" text="Volume" />
       <Label layoutX="696.0" layoutY="358.0" text="Editora" />
-      <TextField fx:id="txtId" layoutX="741.0" layoutY="135.0" prefHeight="25.0" prefWidth="78.0" />
-      <TextField fx:id="txtTitulo" layoutX="741.0" layoutY="181.0" prefHeight="25.0" prefWidth="216.0" />
-      <TextField fx:id="txtAno" layoutX="741.0" layoutY="214.0" prefHeight="25.0" prefWidth="78.0" />
-      <TextField fx:id="txtGenereo" layoutX="741.0" layoutY="255.0" prefHeight="25.0" prefWidth="216.0" />
-      <TextField fx:id="txtAutor" layoutX="741.0" layoutY="289.0" prefHeight="25.0" prefWidth="216.0" />
-      <TextField fx:id="txtVolume" layoutX="741.0" layoutY="319.0" prefHeight="25.0" prefWidth="78.0" />
-      <TextField fx:id="txtEditora" layoutX="741.0" layoutY="354.0" prefHeight="25.0" prefWidth="216.0" />
-      <Button fx:id="btnEditar" layoutX="978.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Editar" />
-      <Button fx:id="btnExcluir" layoutX="1069.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Excluir" />
-      <JFXTreeTableView fx:id="tabelaConsultaLivro" layoutX="14.0" layoutY="122.0" prefHeight="274.0" prefWidth="629.0">
-         <columns>
-            <TreeTableColumn fx:id="id" prefWidth="54.0" text="ID" />
-            <TreeTableColumn fx:id="titulo" prefWidth="152.0" text="Título" />
-            <TreeTableColumn fx:id="ano" prefWidth="54.0" text="Ano" />
-            <TreeTableColumn fx:id="genero" prefWidth="89.0" text="Gênero" />
-            <TreeTableColumn fx:id="autores" prefWidth="85.0" text="Autores" />
-            <TreeTableColumn fx:id="volume" prefWidth="78.0" text="Volume" />
-            <TreeTableColumn fx:id="editora" prefWidth="116.0" text="Editora" />
-         </columns>
-      </JFXTreeTableView>
+      <TableView id="tabela" fx:id="tabelaConsultaLivro" layoutX="14.0" layoutY="135.0" onMouseClicked="#mouseClick" prefHeight="261.0" prefWidth="629.0" style="-fx-border-color: black;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css">
+        <columns>
+          <TableColumn id="colum-id" fx:id="id" prefWidth="45.0" styleClass="mainFxmlClass" text="ID" />
+          <TableColumn fx:id="titulo" prefWidth="145.99993896484375" text="Título" />
+            <TableColumn fx:id="ano" prefWidth="61.000030517578125" text="Ano" />
+            <TableColumn fx:id="genero" prefWidth="92.0" text="Gênero" />
+            <TableColumn fx:id="autores" prefWidth="97.0" text="Autores" />
+            <TableColumn fx:id="volume" prefWidth="53.0" text="Volume" />
+            <TableColumn fx:id="editora" prefWidth="133.0" text="Editora" />
+        </columns>
+      </TableView>
+      <JFXTextField fx:id="txtPesquisaLivro" focusColor="#41e8e8" layoutX="14.0" layoutY="79.0" prefHeight="32.0" prefWidth="500.0" unFocusColor="#1377da" />
+      <JFXButton fx:id="btnPesquisar" layoutX="524.0" layoutY="86.0" prefHeight="32.0" prefWidth="119.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="PESQUISAR" />
+      <JFXTextField fx:id="txtId" focusColor="#41e8e8" layoutX="748.0" layoutY="127.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtTitulo" focusColor="#41e8e8" layoutX="748.0" layoutY="173.0" prefHeight="25.0" prefWidth="220.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtAno" focusColor="#41e8e8" layoutX="748.0" layoutY="206.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtGenereo" focusColor="#41e8e8" layoutX="748.0" layoutY="247.0" prefHeight="25.0" prefWidth="220.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtAutor" focusColor="#41e8e8" layoutX="748.0" layoutY="281.0" prefHeight="25.0" prefWidth="220.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEditora" focusColor="#41e8e8" layoutX="748.0" layoutY="354.0" prefHeight="25.0" prefWidth="180.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtVolume" focusColor="#41e8e8" layoutX="748.0" layoutY="319.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
+      <JFXButton fx:id="btnEditar" layoutX="978.0" layoutY="351.0" onAction="#editar" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EDITAR" />
+      <JFXButton fx:id="btnExcluir" layoutX="1051.0" layoutY="351.0" onAction="#excluir" prefHeight="32.0" prefWidth="79.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EXCLUIR" />
    </children>
 </AnchorPane>

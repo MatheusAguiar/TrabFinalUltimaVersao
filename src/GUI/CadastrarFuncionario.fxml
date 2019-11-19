@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="426.0" prefWidth="528.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CadastrarFuncionarioController">
+<AnchorPane id="AnchorPane" prefHeight="426.0" prefWidth="561.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CadastrarFuncionarioController">
     <stylesheets>
         <URL value="@cadastrarfuncionario.css" />
     </stylesheets>
@@ -55,31 +55,31 @@
             <Font name="Arial Bold Italic" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="btCadastro" layoutX="307.0" layoutY="374.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="103.0" text="Cadastrar">
+      <JFXTextField fx:id="txtNome" focusColor="#41e8e8" layoutX="126.0" layoutY="46.0" prefHeight="25.0" prefWidth="273.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" layoutX="126.0" layoutY="89.0" prefHeight="25.0" prefWidth="192.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEndereco" focusColor="#41e8e8" layoutX="126.0" layoutY="124.0" prefHeight="25.0" prefWidth="273.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEmail" focusColor="#41e8e8" layoutX="126.0" layoutY="160.0" prefHeight="25.0" prefWidth="192.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtFone" focusColor="#41e8e8" layoutX="127.0" layoutY="188.0" prefHeight="25.0" prefWidth="192.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtSenha" focusColor="#41e8e8" layoutX="194.0" layoutY="238.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtContrato" focusColor="#41e8e8" layoutX="194.0" layoutY="282.0" unFocusColor="#1377da" />
+      <JFXDatePicker fx:id="txtData" layoutX="194.0" layoutY="322.0" />
+      <JFXButton fx:id="btCadastro" layoutX="290.0" layoutY="373.0" onAction="#Cadastrar" prefHeight="46.0" prefWidth="126.0" text="CADASTRAR">
          <graphic>
-            <ImageView fitHeight="32.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="31.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagens/cadastro-fun.png" />
                </image>
             </ImageView>
          </graphic>
-      </Button>
-      <Button fx:id="btVoltar" layoutX="423.0" layoutY="374.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="90.0" text="Voltar">
+      </JFXButton>
+      <JFXButton fx:id="btVoltar" layoutX="416.0" layoutY="376.0" prefHeight="34.0" prefWidth="103.0" text="VOLTAR">
          <graphic>
-            <ImageView fitHeight="33.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagens/voltar.png" />
                </image>
             </ImageView>
          </graphic>
-      </Button>
-      <TextField fx:id="txtNome" layoutX="128.0" layoutY="54.0" prefHeight="25.0" prefWidth="256.0" />
-      <TextField fx:id="txtCpf" layoutX="128.0" layoutY="89.0" prefHeight="25.0" prefWidth="256.0" />
-      <TextField fx:id="txtEndereco" layoutX="128.0" layoutY="123.0" prefHeight="25.0" prefWidth="256.0" />
-      <TextField fx:id="txtEmail" layoutX="128.0" layoutY="160.0" prefHeight="25.0" prefWidth="256.0" />
-      <TextField fx:id="txtFone" layoutX="128.0" layoutY="195.0" prefHeight="25.0" prefWidth="179.0" />
-      <TextField fx:id="txtSenha" layoutX="192.0" layoutY="238.0" />
-      <TextField fx:id="txtContrato" layoutX="192.0" layoutY="282.0" prefHeight="25.0" prefWidth="90.0" />
-      <DatePicker fx:id="txtData" layoutX="195.0" layoutY="322.0" />
+      </JFXButton>
    </children>
 </AnchorPane>

@@ -40,5 +40,42 @@ public class LivroDAO {
         return consulta.getResultList();
 
     }
+     
+      public void editar(Livro livro) {
+
+        //Pegando o gerenciador de acesso ao BD
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+        
+        //Iniciar a transação
+        gerenciador.getTransaction().begin();
+
+        //Mandar sincronizar as alterações 
+        gerenciador.merge(livro);
+        
+        //Commit na transação
+        gerenciador.getTransaction().commit();
+
+    }
+      
+      public void excluir(Livro livro){
+        
+        //Pegando o gerenciador de acesso ao BD
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+        
+        //Iniciar a transação
+        gerenciador.getTransaction().begin();
+        
+        //Para excluir tem que dar o merge primeiro para 
+        //sincronizar o livro do BD com o ator que foi
+        //selecionado na tela
+        livro = gerenciador.merge(livro);
+
+        //Mandar sincronizar as alterações 
+        gerenciador.remove(livro);
+        
+        //Commit na transação
+        gerenciador.getTransaction().commit();
+        
+    }
     
 }
