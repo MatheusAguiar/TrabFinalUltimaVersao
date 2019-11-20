@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -44,29 +44,29 @@
             <Font name="Arial Bold Italic" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txtTitulo" layoutX="107.0" layoutY="48.0" prefHeight="40.0" prefWidth="282.0" />
-      <TextField fx:id="txtAno" layoutX="107.0" layoutY="109.0" prefHeight="25.0" prefWidth="97.0" />
-      <TextField fx:id="txtGenero" layoutX="107.0" layoutY="149.0" prefHeight="40.0" prefWidth="282.0" />
-      <TextField fx:id="txtAtor" layoutX="107.0" layoutY="203.0" prefHeight="40.0" prefWidth="282.0" />
-      <TextField fx:id="txtVolume" layoutX="107.0" layoutY="252.0" prefHeight="25.0" prefWidth="97.0" />
-      <TextField fx:id="txtEditora" layoutX="107.0" layoutY="295.0" prefHeight="40.0" prefWidth="282.0" />
-      <Button fx:id="btnCadastrar" layoutX="227.0" layoutY="367.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="115.0" text="Cadastrar">
+      <JFXTextField fx:id="txtTitulo" focusColor="#41e8e8" layoutX="98.0" layoutY="48.0" prefHeight="25.0" prefWidth="258.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtAno" focusColor="#41e8e8" layoutX="98.0" layoutY="102.0" prefHeight="25.0" prefWidth="97.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtGenero" focusColor="#41e8e8" layoutX="106.0" layoutY="149.0" prefHeight="25.0" prefWidth="258.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtAtor" focusColor="#41e8e8" layoutX="106.0" layoutY="203.0" prefHeight="25.0" prefWidth="258.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtVolume" focusColor="#41e8e8" layoutX="106.0" layoutY="245.0" prefHeight="25.0" prefWidth="97.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEditora" focusColor="#41e8e8" layoutX="98.0" layoutY="295.0" prefHeight="25.0" prefWidth="258.0" unFocusColor="#1377da" />
+      <JFXButton fx:id="btnCadastrar" layoutX="225.0" layoutY="371.0" onAction="#Cadastrar" prefHeight="43.0" prefWidth="125.0" text="CADASTRAR">
          <graphic>
-            <ImageView fitHeight="32.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagens/cadastro-livro.png" />
                </image>
             </ImageView>
          </graphic>
-      </Button>
-      <Button fx:id="btbVoltar" layoutX="351.0" layoutY="367.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="85.0" text="Voltar">
+      </JFXButton>
+      <JFXButton fx:id="btbVoltar" layoutX="350.0" layoutY="371.0" prefHeight="36.0" prefWidth="97.0" text="VOLTAR">
          <graphic>
-            <ImageView fitHeight="32.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagens/voltar.png" />
                </image>
             </ImageView>
          </graphic>
-      </Button>
+      </JFXButton>
    </children>
 </AnchorPane>

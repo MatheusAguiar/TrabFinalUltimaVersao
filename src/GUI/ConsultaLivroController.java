@@ -6,8 +6,6 @@
 package GUI;
 
 import Servicos.LivroServico;
-import com.jfoenix.controls.JFXTreeTableColumn;
-
 import dados.entidade.Livro;
 import java.net.URL;
 import java.util.List;
@@ -240,6 +238,26 @@ public class ConsultaLivroController implements Initializable {
         } else {
             mensagemErro("Selecione um livro.");
         }
+
+    }
+
+    @FXML
+    private void buscarPorTitulo(ActionEvent event) {
+
+        //Limpando quaisquer dados anteriores
+        dados.clear();
+
+        String titulo = txtPesquisaLivro.getText();
+
+        //Solicitando a camada de servico a lista de atores
+        List<Livro> livros = servico.buscarPorTitulo(titulo);
+
+        //Transformar a lista de atores no formato que a tabela
+        //do JavaFX aceita
+        dados = FXCollections.observableArrayList(livros);
+
+        //Jogando os dados na tabela
+        tabelaConsultaLivro.setItems(dados);
 
     }
 

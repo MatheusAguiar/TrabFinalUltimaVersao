@@ -48,7 +48,7 @@
         </columns>
       </TableView>
       <JFXTextField fx:id="txtPesquisaLivro" focusColor="#41e8e8" layoutX="14.0" layoutY="79.0" prefHeight="32.0" prefWidth="500.0" unFocusColor="#1377da" />
-      <JFXButton fx:id="btnPesquisar" layoutX="524.0" layoutY="86.0" prefHeight="32.0" prefWidth="119.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="PESQUISAR" />
+      <JFXButton fx:id="btnPesquisar" layoutX="524.0" layoutY="86.0" onAction="#buscarPorTitulo" prefHeight="32.0" prefWidth="119.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="PESQUISAR" />
       <JFXTextField fx:id="txtId" focusColor="#41e8e8" layoutX="748.0" layoutY="127.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtTitulo" focusColor="#41e8e8" layoutX="748.0" layoutY="173.0" prefHeight="25.0" prefWidth="220.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtAno" focusColor="#41e8e8" layoutX="748.0" layoutY="206.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />

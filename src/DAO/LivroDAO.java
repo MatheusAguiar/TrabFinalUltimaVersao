@@ -77,5 +77,19 @@ public class LivroDAO {
         gerenciador.getTransaction().commit();
         
     }
+      
+      public List<Livro>buscarPorTitulo(String n){
+      
+      EntityManager gerenciador = JPAUtil.getGerenciador();
+      
+      TypedQuery<Livro> consulta = gerenciador.createQuery(
+                "Select livro from Livro livro where livro.titulo like :titulo", Livro.class);
+      
+      consulta.setParameter("titulo", "%"+ n + "%");
+      
+      return consulta.getResultList();
+      
+      
+      }
     
 }
