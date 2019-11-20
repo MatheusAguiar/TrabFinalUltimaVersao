@@ -7,27 +7,27 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 public class ExemplarDAO {
-    
+
     /**
-     * Salvar o ator no BD
+     * Salvar o exemplar no BD
      */
-    public void salvar(Exemplar exemplar){
-        
+    public void salvar(Exemplar exemplar) {
+
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
-        
+
         //Iniciar a transação
         gerenciador.getTransaction().begin();
-        
-        //Mandar persistir o ator
+
+        //Mandar persistir o exemplar
         gerenciador.persist(exemplar);
-        
+
         //Commit
         gerenciador.getTransaction().commit();
-        
+
     }
-    
-     public List<Exemplar> listar() {
+
+    public List<Exemplar> listar() {
 
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -36,9 +36,9 @@ public class ExemplarDAO {
         TypedQuery consulta = gerenciador.createQuery(
                 "Select exemplar from Exemplar exemplar", Exemplar.class);
 
-        //Retornar a lista de atores
+        //Retornar a lista de exemplares
         return consulta.getResultList();
 
     }
-    
+
 }

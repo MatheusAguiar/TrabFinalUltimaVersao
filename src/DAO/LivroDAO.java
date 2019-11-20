@@ -7,27 +7,27 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 public class LivroDAO {
-    
+
     /**
-     * Salvar o ator no BD
+     * Salvar o livro no BD
      */
-    public void salvar(Livro livro){
-        
+    public void salvar(Livro livro) {
+
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
-        
+
         //Iniciar a transação
         gerenciador.getTransaction().begin();
-        
-        //Mandar persistir o ator
+
+        //Mandar persistir o livro
         gerenciador.persist(livro);
-        
+
         //Commit
         gerenciador.getTransaction().commit();
-        
+
     }
-    
-     public List<Livro> listar() {
+
+    public List<Livro> listar() {
 
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -36,35 +36,35 @@ public class LivroDAO {
         TypedQuery consulta = gerenciador.createQuery(
                 "Select livro from Livro livro", Livro.class);
 
-        //Retornar a lista de atores
+        //Retornar a lista de livros
         return consulta.getResultList();
 
     }
-     
-      public void editar(Livro livro) {
+
+    public void editar(Livro livro) {
 
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
-        
+
         //Iniciar a transação
         gerenciador.getTransaction().begin();
 
         //Mandar sincronizar as alterações 
         gerenciador.merge(livro);
-        
+
         //Commit na transação
         gerenciador.getTransaction().commit();
 
     }
-      
-      public void excluir(Livro livro){
-        
+
+    public void excluir(Livro livro) {
+
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
-        
+
         //Iniciar a transação
         gerenciador.getTransaction().begin();
-        
+
         //Para excluir tem que dar o merge primeiro para 
         //sincronizar o livro do BD com o ator que foi
         //selecionado na tela
@@ -72,24 +72,23 @@ public class LivroDAO {
 
         //Mandar sincronizar as alterações 
         gerenciador.remove(livro);
-        
+
         //Commit na transação
         gerenciador.getTransaction().commit();
-        
+
     }
-      
-      public List<Livro>buscarPorTitulo(String n){
-      
-      EntityManager gerenciador = JPAUtil.getGerenciador();
-      
-      TypedQuery<Livro> consulta = gerenciador.createQuery(
+
+    public List<Livro> buscarPorTitulo(String n) {
+
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+
+        TypedQuery<Livro> consulta = gerenciador.createQuery(
                 "Select livro from Livro livro where livro.titulo like :titulo", Livro.class);
-      
-      consulta.setParameter("titulo", "%"+ n + "%");
-      
-      return consulta.getResultList();
-      
-      
-      }
-    
+
+        consulta.setParameter("titulo", "%" + n + "%");
+
+        return consulta.getResultList();
+
+    }
+
 }

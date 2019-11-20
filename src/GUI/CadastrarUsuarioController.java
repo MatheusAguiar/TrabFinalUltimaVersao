@@ -62,33 +62,11 @@ public class CadastrarUsuarioController implements Initializable {
 
     private void CadastrarUsuarios(ActionEvent event) {
 
-        
-    }
-
-    public void limparCampos() {
-
-        //Limpando o form
-        txtNome.setText("");
-        txtCpf.setText("");
-        txtEndereco.setText("");
-        txtEmail.setText("");
-        txtTelefone.setText("");
-        txtCodigo.setText("");
-       
-
-    }
-
-    public void mensagemSucesso(String m) {
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("SUCESSO!");
-        alerta.setHeaderText(null);
-        alerta.setContentText(m);
-        alerta.showAndWait();
     }
 
     @FXML
     private void Cadastrar(ActionEvent event) {
-        
+
         Usuario user = new Usuario();
         user.setCodigoContrato(Integer.valueOf(txtCodigo.getText()));
         user.setNome(txtNome.getText());
@@ -110,6 +88,26 @@ public class CadastrarUsuarioController implements Initializable {
 
         mensagemSucesso("Usuário salvo com sucesso!");
         limparCampos();
+    }
+
+    public void limparCampos() {
+
+        //Limpando o form
+        txtNome.setText("");
+        txtCpf.setText("");
+        txtEndereco.setText("");
+        txtEmail.setText("");
+        txtTelefone.setText("");
+        txtCodigo.setText("");
+
+    }
+
+    public void mensagemSucesso(String m) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("SUCESSO!");
+        alerta.setHeaderText(null);
+        alerta.setContentText(m);
+        alerta.showAndWait();
     }
 
 }
