@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -20,14 +21,12 @@
             <Font name="Arial Black" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="58.0" text="Nome">
+      <Label layoutX="14.0" layoutY="78.0" text="Nome">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPesquisaNome" layoutX="14.0" layoutY="85.0" prefHeight="32.0" prefWidth="515.0" />
-      <Button fx:id="btnPesquisar" layoutX="533.0" layoutY="85.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="116.0" text="Pesquisar" />
-      <TableView fx:id="tabela" layoutX="14.0" layoutY="136.0" prefHeight="255.0" prefWidth="635.0">
+      <TableView fx:id="tabela" layoutX="14.0" layoutY="136.0" onMouseClicked="#mouseclick" prefHeight="255.0" prefWidth="635.0" style="-fx-border-color: black;">
          <columns>
             <TableColumn fx:id="id" prefWidth="47.0" text="ID" />
             <TableColumn fx:id="codContrato" prefWidth="113.0" text="Cód.Contrato" />
@@ -49,18 +48,24 @@
       <Label layoutX="700.0" layoutY="257.0" text="Endereço" />
       <Label layoutX="700.0" layoutY="293.0" text="Email" />
       <Label layoutX="700.0" layoutY="328.0" text="Telefone" />
-      <TextField fx:id="txtId" layoutX="770.0" layoutY="124.0" prefHeight="25.0" prefWidth="62.0" />
-      <TextField fx:id="txtNome" layoutX="770.0" layoutY="194.0" prefHeight="25.0" prefWidth="207.0" />
-      <TextField fx:id="txtCpf" layoutX="770.0" layoutY="223.0" prefHeight="25.0" prefWidth="207.0" />
-      <TextField fx:id="txtEndereco" layoutX="770.0" layoutY="253.0" prefHeight="25.0" prefWidth="266.0" />
-      <TextField fx:id="txtEmail" layoutX="770.0" layoutY="289.0" prefHeight="25.0" prefWidth="207.0" />
-      <TextField fx:id="txtTelefone" layoutX="771.0" layoutY="324.0" prefHeight="25.0" prefWidth="207.0" />
       <Label layoutX="688.0" layoutY="159.0" text="Cod.Contrato" />
-      <TextField fx:id="txtId1" layoutX="770.0" layoutY="155.0" prefHeight="25.0" prefWidth="62.0" />
       <Label layoutX="704.0" layoutY="365.0" text="Ativo" />
-      <RadioButton layoutX="771.0" layoutY="365.0" mnemonicParsing="false" text="Sim" />
-      <RadioButton layoutX="822.0" layoutY="365.0" mnemonicParsing="false" text="Não" />
-      <Button fx:id="btnEditar" layoutX="1036.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Editar" />
-      <Button fx:id="btnExcluir" layoutX="1114.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Excluir" />
+      <JFXButton fx:id="btnPesquisar" layoutX="534.0" layoutY="96.0" onAction="#pesquisarPorNome" prefHeight="32.0" prefWidth="119.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="PESQUISAR" />
+      <JFXTextField fx:id="txtPesquisaNome" focusColor="#41e8e8" layoutX="14.0" layoutY="86.0" prefHeight="32.0" prefWidth="500.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtId" focusColor="#41e8e8" layoutX="767.0" layoutY="124.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtContrato" focusColor="#41e8e8" layoutX="767.0" layoutY="147.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtNome" focusColor="#41e8e8" layoutX="767.0" layoutY="186.0" prefHeight="25.0" prefWidth="268.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" layoutX="767.0" layoutY="215.0" prefHeight="25.0" prefWidth="268.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEndereco" focusColor="#41e8e8" layoutX="767.0" layoutY="245.0" prefHeight="25.0" prefWidth="268.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEmail" focusColor="#41e8e8" layoutX="767.0" layoutY="281.0" prefHeight="25.0" prefWidth="268.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtTelefone" focusColor="#41e8e8" layoutX="767.0" layoutY="316.0" prefHeight="25.0" prefWidth="130.0" unFocusColor="#1377da" />
+      <JFXRadioButton fx:id="rbSim" layoutX="759.0" layoutY="365.0" text="SIM">
+         <toggleGroup>
+            <ToggleGroup fx:id="Ativo" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rbNao" layoutX="814.0" layoutY="365.0" text="NÃO" toggleGroup="$Ativo" />
+      <JFXButton fx:id="btnEditar" layoutX="1035.0" layoutY="349.0" onAction="#editar" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EDITAR" />
+      <JFXButton fx:id="btnExcluir" layoutX="1108.0" layoutY="349.0" onAction="#excluir" prefHeight="32.0" prefWidth="79.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EXCLUIR" />
    </children>
 </AnchorPane>

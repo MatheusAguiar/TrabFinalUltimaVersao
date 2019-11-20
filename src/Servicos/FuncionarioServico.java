@@ -23,5 +23,22 @@ public class FuncionarioServico {
         return dao.listar();
         
     }
+       
+          public void editar(Funcionario func) {
+
+        dao.editar(func);
+
+    }
+
+    public void excluir(Funcionario func) {
+
+        dao.excluir(func);
+    }
+
+    public List<Funcionario> buscarPorNome(String n) {
+
+        return dao.buscarPorNome(n);
+
+    }
     
 }

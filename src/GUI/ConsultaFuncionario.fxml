@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -16,14 +16,12 @@
             <Font name="Arial Black" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="52.0" text="Nome">
+      <Label layoutX="14.0" layoutY="61.0" text="Nome">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPesquisaFuncionario" layoutX="14.0" layoutY="79.0" prefHeight="32.0" prefWidth="518.0" />
-      <Button layoutX="538.0" layoutY="79.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="116.0" text="Pesquisar" />
-      <TableView fx:id="tabela" layoutX="14.0" layoutY="130.0" prefHeight="255.0" prefWidth="640.0">
+      <TableView fx:id="tabela" layoutX="14.0" layoutY="130.0" onMouseClicked="#mouseclick" prefHeight="255.0" prefWidth="640.0" style="-fx-border-color: black;">
          <columns>
             <TableColumn fx:id="id" prefWidth="44.0" text="ID" />
             <TableColumn fx:id="nome" prefWidth="106.0" text="Nome" />
@@ -47,15 +45,17 @@
       <Label layoutX="689.0" layoutY="293.0" text="Telefone" />
       <Label layoutX="689.0" layoutY="329.0" text="Contrato" />
       <Label layoutX="689.0" layoutY="362.0" text="Fim Contrato" />
-      <TextField fx:id="txtId" layoutX="759.0" layoutY="126.0" prefHeight="25.0" prefWidth="62.0" />
-      <TextField fx:id="txtNome" layoutX="759.0" layoutY="159.0" prefHeight="25.0" prefWidth="207.0" />
-      <TextField fx:id="txtCpf" layoutX="759.0" layoutY="188.0" prefHeight="25.0" prefWidth="207.0" />
-      <TextField fx:id="txtEndereco" layoutX="759.0" layoutY="218.0" prefHeight="25.0" prefWidth="266.0" />
-      <TextField fx:id="txtEmail" layoutX="759.0" layoutY="254.0" prefHeight="25.0" prefWidth="207.0" />
-      <TextField fx:id="txtTelefone" layoutX="760.0" layoutY="289.0" prefHeight="25.0" prefWidth="207.0" />
-      <TextField fx:id="txtContrato" layoutX="759.0" layoutY="325.0" prefHeight="25.0" prefWidth="62.0" />
-      <DatePicker fx:id="txtFimContrato" layoutX="761.0" layoutY="358.0" prefHeight="25.0" prefWidth="116.0" />
-      <Button fx:id="btnEditar" layoutX="899.0" layoutY="358.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Editar" />
-      <Button fx:id="btnExcluir" layoutX="983.0" layoutY="358.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Excluir" />
+      <JFXButton fx:id="btnPesquisar" layoutX="535.0" layoutY="89.0" onAction="#pesquisarPorNome" prefHeight="32.0" prefWidth="119.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="PESQUISAR" />
+      <JFXTextField fx:id="txtPesquisaFuncionario" focusColor="#41e8e8" layoutX="15.0" layoutY="79.0" prefHeight="32.0" prefWidth="500.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtId" focusColor="#41e8e8" layoutX="752.0" layoutY="126.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
+      <JFXButton fx:id="btnEditar" layoutX="972.0" layoutY="355.0" onAction="#editar" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EDITAR" />
+      <JFXButton fx:id="btnExcluir" layoutX="1045.0" layoutY="355.0" onAction="#excluir" prefHeight="32.0" prefWidth="79.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EXCLUIR" />
+      <JFXTextField fx:id="txtNome" focusColor="#41e8e8" layoutX="752.0" layoutY="151.0" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" layoutX="752.0" layoutY="180.0" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEndereco" focusColor="#41e8e8" layoutX="752.0" layoutY="210.0" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEmail" focusColor="#41e8e8" layoutX="752.0" layoutY="246.0" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtTelefone" focusColor="#41e8e8" layoutX="752.0" layoutY="281.0" prefHeight="25.0" prefWidth="139.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtContrato" focusColor="#41e8e8" layoutX="752.0" layoutY="317.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
+      <JFXDatePicker fx:id="txtFimContrato" defaultColor="#41e8e8" layoutX="771.0" layoutY="350.0" prefHeight="25.0" prefWidth="129.0" />
    </children>
 </AnchorPane>

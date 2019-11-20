@@ -22,5 +22,22 @@ public class UsuarioServico {
         return dao.listar();
         
     }
+     
+      public void editar(Usuario usuario) {
+
+        dao.editar(usuario);
+
+    }
+
+    public void excluir(Usuario usuario) {
+
+        dao.excluir(usuario);
+    }
+
+    public List<Usuario> buscarPorNome(String n) {
+
+        return dao.buscarPorNome(n);
+
+    }
     
 }

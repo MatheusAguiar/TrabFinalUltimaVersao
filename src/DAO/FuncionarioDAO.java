@@ -85,5 +85,55 @@ public class FuncionarioDAO {
         return consulta.getResultList();
 
     }
+     
+     public void editar(Funcionario func) {
+
+        //Pegando o gerenciador de acesso ao BD
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+
+        //Iniciar a transação
+        gerenciador.getTransaction().begin();
+
+        //Mandar sincronizar as alterações 
+        gerenciador.merge(func);
+
+        //Commit na transação
+        gerenciador.getTransaction().commit();
+
+    }
+
+    public void excluir(Funcionario func) {
+
+        //Pegando o gerenciador de acesso ao BD
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+
+        //Iniciar a transação
+        gerenciador.getTransaction().begin();
+
+        //Para excluir tem que dar o merge primeiro para 
+        //sincronizar o livro do BD com o ator que foi
+        //selecionado na tela
+        func = gerenciador.merge(func);
+
+        //Mandar sincronizar as alterações 
+        gerenciador.remove(func);
+
+        //Commit na transação
+        gerenciador.getTransaction().commit();
+
+    }
+
+    public List<Funcionario> buscarPorNome(String n) {
+
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+
+        TypedQuery<Funcionario> consulta = gerenciador.createQuery(
+                "Select funcionario from Funcionario funcionario where funcionario.nome like :nome", Funcionario.class);
+
+        consulta.setParameter("nome", "%" + n + "%");
+
+        return consulta.getResultList();
+
+    }
 
 }
