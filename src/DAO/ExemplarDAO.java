@@ -3,6 +3,7 @@ package DAO;
 import dados.entidade.Exemplar;
 import javax.persistence.EntityManager;
 import UTIL.JPAUtil;
+import dados.entidade.Livro;
 import java.util.List;
 import javax.persistence.TypedQuery;
 
@@ -37,6 +38,20 @@ public class ExemplarDAO {
                 "Select exemplar from Exemplar exemplar", Exemplar.class);
 
         //Retornar a lista de exemplares
+        return consulta.getResultList();
+
+    }
+    
+    
+     public List<Exemplar> buscarPorTitulo(String n) {
+
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+
+        TypedQuery<Exemplar> consulta = gerenciador.createQuery(
+                "select ex from Exemplar ex inner join Livro livro on livro.id = ex.livro AND titulo like :titulo", Exemplar.class);
+
+        consulta.setParameter("titulo", "%" + n + "%");
+
         return consulta.getResultList();
 
     }

@@ -7,6 +7,7 @@ package Servicos;
 
 import DAO.ExemplarDAO;
 import dados.entidade.Exemplar;
+import dados.entidade.Livro;
 import java.util.List;
 
 /**
@@ -32,6 +33,12 @@ public class ExemplarServico {
         //Pedir a DAO para listar e retornar
         return dao.listar();
         
+    }
+     
+     public List<Exemplar> buscarPorTitulo(String n) {
+
+        return dao.buscarPorTitulo(n);
+
     }
     
     
