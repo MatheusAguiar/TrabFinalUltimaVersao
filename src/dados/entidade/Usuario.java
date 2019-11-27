@@ -85,5 +85,10 @@ public class Usuario  {
         this.codigoContrato = codigoContrato;
     }
     
+    public String toString(){
+    return nome;
+    
+    }
+    
     
 }

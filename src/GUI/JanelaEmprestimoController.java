@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Servicos.EmprestimoServico;
 import Servicos.ExemplarServico;
 import Servicos.FuncionarioServico;
 import Servicos.UsuarioServico;
@@ -12,8 +13,10 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import dados.entidade.Emprestimo;
 import dados.entidade.Exemplar;
 import dados.entidade.Funcionario;
+import dados.entidade.Livro;
 import dados.entidade.Usuario;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -31,6 +34,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -97,6 +101,11 @@ public class JanelaEmprestimoController implements Initializable {
     private Exemplar exemplarselecionado;
 
     private ExemplarServico servicoexemplar = new ExemplarServico();
+    private EmprestimoServico servicoemprestimo = new EmprestimoServico();
+
+    private ObservableList<Emprestimo> dadosemprestimo
+            = FXCollections.observableArrayList();
+
     @FXML
     private JFXTextField txtDataEmprestimo;
     @FXML
@@ -109,6 +118,24 @@ public class JanelaEmprestimoController implements Initializable {
     private JFXTextField txtUser;
     @FXML
     private JFXTextField txtExemplar;
+    @FXML
+    private TableView<Emprestimo> tabelaEmprestimo;
+    @FXML
+    private TableColumn funcionario;
+    @FXML
+    private TableColumn usuario;
+    @FXML
+    private TableColumn exemplar;
+    @FXML
+    private TableColumn dataEmprestimo;
+    @FXML
+    private TableColumn dataDevolucao;
+    @FXML
+    private TableColumn observacao;
+    @FXML
+    private JFXButton btnEmprestar;
+    @FXML
+    private JFXButton btnDevolver;
 
     /**
      * Initializes the controller class.
@@ -121,6 +148,7 @@ public class JanelaEmprestimoController implements Initializable {
         listarFuncionariosTabela();
         listarUsuariosTabela();
         listarExemplaresTabela();
+        listarEmprestimos();
         // TODO
     }
 
@@ -230,6 +258,24 @@ public class JanelaEmprestimoController implements Initializable {
         numexemplar.setCellValueFactory(
                 new PropertyValueFactory("numExemplar"));
 
+        funcionario.setCellValueFactory(
+                new PropertyValueFactory("funcionario"));
+
+        usuario.setCellValueFactory(
+                new PropertyValueFactory("usuario"));
+
+        exemplar.setCellValueFactory(
+                new PropertyValueFactory("exemplar"));
+
+        dataEmprestimo.setCellValueFactory(
+                new PropertyValueFactory("dataretirada"));
+
+        dataDevolucao.setCellValueFactory(
+                new PropertyValueFactory("dataDevolucao"));
+
+        observacao.setCellValueFactory(
+                new PropertyValueFactory("observacao"));
+
     }//configurarTabela  
 
     private void listarFuncionariosTabela() {
@@ -280,14 +326,6 @@ public class JanelaEmprestimoController implements Initializable {
 
     }
 
-    public void mensagemErro(String m) {
-        Alert alerta = new Alert(Alert.AlertType.ERROR);
-        alerta.setTitle("ERRO!");
-        alerta.setHeaderText(null);
-        alerta.setContentText(m);
-        alerta.showAndWait();
-    }
-
     public void HORA_DATA() {
         txtDataEmprestimo.setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis())));
 
@@ -297,6 +335,109 @@ public class JanelaEmprestimoController implements Initializable {
         String formato = "dd/MM/yyyy";
         SimpleDateFormat dataFormatada = new SimpleDateFormat(formato);
         txtDataDevolucao.setText(dataFormatada.format(a));
+
+    }
+
+    @FXML
+    private void pegarFuncionario(MouseEvent event) {
+
+        //Pegar o usuario que foi selecionado na tabela
+        funcselecionado = tabelaFunc.getSelectionModel()
+                .getSelectedItem();
+
+        //Se tem algum usuario selecionado
+        if (funcselecionado != null) { //tem usuario selecionado
+            //Pegar os dados do usuario e jogar nos campos do
+            //formulario
+            txtFunc.setText(
+                    String.valueOf(funcselecionado.getId()));
+
+        } else { //não tem usuario selecionado na tabela
+            mensagemErro("Selecione um funcionário.");
+        }
+    }
+
+    @FXML
+    private void pegarExemplar(MouseEvent event) {
+
+        //Pegar o usuario que foi selecionado na tabela
+        exemplarselecionado = tabelaExemplar.getSelectionModel()
+                .getSelectedItem();
+
+        //Se tem algum usuario selecionado
+        if (exemplarselecionado != null) { //tem usuario selecionado
+            //Pegar os dados do usuario e jogar nos campos do
+            //formulario
+            txtExemplar.setText(
+                    String.valueOf(exemplarselecionado.getId()));
+
+        } else { //não tem usuario selecionado na tabela
+            mensagemErro("Selecione um Exemplar.");
+        }
+
+    }
+
+    @FXML
+    private void pegarUsuario(MouseEvent event) {
+
+        //Pegar o usuario que foi selecionado na tabela
+        userselecionado = tabelaUser.getSelectionModel()
+                .getSelectedItem();
+
+        //Se tem algum usuario selecionado
+        if (userselecionado != null) { //tem usuario selecionado
+            //Pegar os dados do usuario e jogar nos campos do
+            //formulario
+            txtUser.setText(
+                    String.valueOf(userselecionado.getId()));
+
+        } else { //não tem usuario selecionado na tabela
+            mensagemErro("Selecione um Usuário.");
+        }
+    }
+
+    public void mensagemErro(String m) {
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setTitle("ERRO!");
+        alerta.setHeaderText(null);
+        alerta.setContentText(m);
+        alerta.showAndWait();
+    }
+
+    @FXML
+    private void emprestar(ActionEvent event) {
+
+        Emprestimo emp = new Emprestimo();
+        emp.setDataretirada(txtDataEmprestimo.getText());
+        emp.setDataDevolucao(txtDataDevolucao.getText());
+        emp.setObservacao(txtObs.getText());
+        Usuario u = new Usuario();
+        u.setId(Integer.valueOf(txtUser.getText()));
+        emp.setUsuario(u);
+        Exemplar ex = new Exemplar();
+        ex.setId(Integer.valueOf(txtExemplar.getText()));
+        emp.setExemplar(ex);
+        Funcionario f = new Funcionario();
+        f.setId(Integer.valueOf(txtFunc.getText()));
+        emp.setFuncionario(f);
+        servicoemprestimo.salvar(emp);
+
+        //Exibindo mensagem
+    }
+
+    private void listarEmprestimos() {
+        //Limpando quaisquer dados anteriores
+        dadosemprestimo.clear();
+
+        //Solicitando a camada de servico a lista de funcionários
+        List<Emprestimo> emprestimos = servicoemprestimo.listar();
+
+        //Transformar a lista de atores no formato que a tabela
+        //do JavaFX aceita
+        dadosemprestimo = FXCollections.observableArrayList(emprestimos);
+
+        //Jogando os dados na tabela
+        tabelaEmprestimo.setItems(dadosemprestimo);
 
     }
 

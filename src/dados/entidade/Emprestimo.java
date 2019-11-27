@@ -17,6 +17,9 @@ public class Emprestimo {
     private String dataretirada;
     private String dataDevolucao;
     private String observacao;
+  
+
+  
     
     @ManyToOne(optional=false)
     private Funcionario funcionario;
@@ -84,6 +87,8 @@ public class Emprestimo {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+    
+  
     
     
     public void finalizarEmprestimo(Livro livro, Usuario usuario){}

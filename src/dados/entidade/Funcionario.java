@@ -103,4 +103,8 @@ public class Funcionario  {
     public Integer calculaQtdEmprestimo(Usuario usuario) {
         return 1;
     }
+    public String toString(){
+    return nome;
+    
+    }
 }
