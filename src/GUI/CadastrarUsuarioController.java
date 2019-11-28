@@ -7,6 +7,7 @@ package GUI;
 
 import DAO.UsuarioDAO;
 import Servicos.UsuarioServico;
+import UTIL.TextFieldFormatter;
 import com.jfoenix.controls.JFXButton;
 import dados.entidade.Usuario;
 import java.net.URL;
@@ -19,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
@@ -49,8 +51,6 @@ public class CadastrarUsuarioController implements Initializable {
     private UsuarioServico servico = new UsuarioServico();
     @FXML
     private ToggleGroup Ativo;
-    @FXML
-    private JFXButton btbVoltar;
 
     /**
      * Initializes the controller class.
@@ -108,6 +108,26 @@ public class CadastrarUsuarioController implements Initializable {
         alerta.setHeaderText(null);
         alerta.setContentText(m);
         alerta.showAndWait();
+    }
+
+    @FXML
+    private void maskCpf(KeyEvent event) {
+        
+         TextFieldFormatter tff = new TextFieldFormatter();
+        tff.setMask("###.###.###-##");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txtCpf);
+        tff.formatter();
+    }
+
+    @FXML
+    private void maskFone(KeyEvent event) {
+        
+        TextFieldFormatter tff = new TextFieldFormatter();
+        tff.setMask("(##)####-####");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txtTelefone);
+        tff.formatter();
     }
 
 }

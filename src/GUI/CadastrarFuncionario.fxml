@@ -5,8 +5,6 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -56,30 +54,13 @@
          </font>
       </Label>
       <JFXTextField fx:id="txtNome" focusColor="#41e8e8" layoutX="126.0" layoutY="46.0" prefHeight="25.0" prefWidth="273.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" layoutX="126.0" layoutY="89.0" prefHeight="25.0" prefWidth="192.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" layoutX="126.0" layoutY="89.0" onKeyReleased="#maskCpf" prefHeight="25.0" prefWidth="192.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtEndereco" focusColor="#41e8e8" layoutX="126.0" layoutY="124.0" prefHeight="25.0" prefWidth="273.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtEmail" focusColor="#41e8e8" layoutX="126.0" layoutY="160.0" prefHeight="25.0" prefWidth="192.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtFone" focusColor="#41e8e8" layoutX="127.0" layoutY="188.0" prefHeight="25.0" prefWidth="192.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtFone" focusColor="#41e8e8" layoutX="127.0" layoutY="188.0" onKeyReleased="#maskTelefone" prefHeight="25.0" prefWidth="192.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtSenha" focusColor="#41e8e8" layoutX="194.0" layoutY="238.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtContrato" focusColor="#41e8e8" layoutX="194.0" layoutY="282.0" unFocusColor="#1377da" />
       <JFXDatePicker fx:id="txtData" layoutX="194.0" layoutY="322.0" />
-      <JFXButton fx:id="btCadastro" layoutX="290.0" layoutY="373.0" onAction="#Cadastrar" prefHeight="46.0" prefWidth="126.0" text="CADASTRAR">
-         <graphic>
-            <ImageView fitHeight="31.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imagens/cadastro-fun.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btVoltar" layoutX="416.0" layoutY="376.0" prefHeight="34.0" prefWidth="103.0" text="VOLTAR">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imagens/voltar.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
+      <JFXButton fx:id="btCadastro" layoutX="412.0" layoutY="370.0" onAction="#Cadastrar" prefHeight="32.0" prefWidth="102.0" ripplerFill="#1bc9ff" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="CADASTRAR" />
    </children>
 </AnchorPane>

@@ -4,8 +4,6 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -50,23 +48,6 @@
       <JFXTextField fx:id="txtAtor" focusColor="#41e8e8" layoutX="106.0" layoutY="203.0" prefHeight="25.0" prefWidth="258.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtVolume" focusColor="#41e8e8" layoutX="106.0" layoutY="245.0" prefHeight="25.0" prefWidth="97.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtEditora" focusColor="#41e8e8" layoutX="98.0" layoutY="295.0" prefHeight="25.0" prefWidth="258.0" unFocusColor="#1377da" />
-      <JFXButton fx:id="btnCadastrar" layoutX="225.0" layoutY="371.0" onAction="#Cadastrar" prefHeight="43.0" prefWidth="125.0" text="CADASTRAR">
-         <graphic>
-            <ImageView fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imagens/cadastro-livro.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btbVoltar" layoutX="350.0" layoutY="371.0" prefHeight="36.0" prefWidth="97.0" text="VOLTAR">
-         <graphic>
-            <ImageView fitHeight="24.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imagens/voltar.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
+      <JFXButton fx:id="btnCadastrar" layoutX="342.0" layoutY="369.0" onAction="#Cadastrar" prefHeight="32.0" prefWidth="102.0" ripplerFill="#1bc9ff" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="CADASTRAR" />
    </children>
 </AnchorPane>

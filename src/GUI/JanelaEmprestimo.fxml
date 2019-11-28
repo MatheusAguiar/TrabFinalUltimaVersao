@@ -61,12 +61,12 @@
       </Label>
       <TableView fx:id="tabelaEmprestimo" layoutX="47.0" layoutY="459.0" prefHeight="246.0" prefWidth="752.0" style="-fx-border-color: black;">
          <columns>
-            <TableColumn fx:id="funcionario" prefWidth="75.0" text="Funcionário" />
-            <TableColumn fx:id="usuario" prefWidth="75.0" text="Usuário" />
-            <TableColumn fx:id="exemplar" prefWidth="75.0" text="Exemplar" />
-            <TableColumn fx:id="dataEmprestimo" prefWidth="113.0" text="Data Empréstimo" />
-            <TableColumn fx:id="dataDevolucao" prefWidth="99.0" text="Data Devolução" />
-            <TableColumn fx:id="observacao" prefWidth="249.0" text="Observações" />
+            <TableColumn fx:id="funcionario" prefWidth="114.0" text="Funcionário" />
+            <TableColumn fx:id="usuario" prefWidth="103.0" text="Usuário" />
+            <TableColumn fx:id="exemplar" prefWidth="106.0" text="Exemplar" />
+            <TableColumn fx:id="dataEmprestimo" prefWidth="117.0" text="Data Empréstimo" />
+            <TableColumn fx:id="dataDevolucao" prefWidth="116.0" text="Data Devolução" />
+            <TableColumn fx:id="observacao" prefWidth="193.0" text="Observações" />
          </columns></TableView>
       <Label layoutX="881.0" layoutY="175.0" text="Data do Empréstimo" />
       <Label layoutX="878.0" layoutY="370.0" text=" Usuário" />
@@ -87,7 +87,7 @@
       <JFXRadioButton fx:id="rbExemplar" layoutX="347.0" layoutY="56.0" text="Exemplar" toggleGroup="$Selecione" />
       <JFXRadioButton fx:id="rbUsuario" layoutX="268.0" layoutY="55.0" text="Usuário" toggleGroup="$Selecione" />
       <JFXTextField fx:id="txtPesquisa" focusColor="#41e8e8" layoutX="44.0" layoutY="107.0" prefHeight="25.0" prefWidth="641.0" unFocusColor="#1377da" />
-      <JFXButton fx:id="btnPesquisar" layoutX="694.0" layoutY="104.0" onAction="#pesquisar" prefHeight="32.0" prefWidth="102.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="PESQUISAR" />
+      <JFXButton fx:id="btnPesquisar" layoutX="694.0" layoutY="104.0" onAction="#pesquisar" prefHeight="32.0" prefWidth="102.0" ripplerFill="#1bc9ff" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="PESQUISAR" />
       <JFXTextField fx:id="txtObs" focusColor="#41e8e8" layoutX="1003.0" layoutY="249.0" prefHeight="55.0" prefWidth="281.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtFunc" editable="false" focusColor="#41e8e8" layoutX="1007.0" layoutY="317.0" prefHeight="25.0" prefWidth="63.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtUser" editable="false" focusColor="#41e8e8" layoutX="1007.0" layoutY="358.0" prefHeight="25.0" prefWidth="63.0" unFocusColor="#1377da" />

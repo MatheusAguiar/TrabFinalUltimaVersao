@@ -6,6 +6,7 @@
 package GUI;
 
 import Servicos.FuncionarioServico;
+import UTIL.TextFieldFormatter;
 import com.jfoenix.controls.JFXButton;
 import dados.entidade.Funcionario;
 import dados.entidade.Usuario;
@@ -28,6 +29,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -275,6 +277,26 @@ public class ConsultaFuncionarioController implements Initializable {
         alerta.setHeaderText(null);
         alerta.setContentText(m);
         alerta.showAndWait();
+    }
+
+    @FXML
+    private void maskCpf(KeyEvent event) {
+        
+         TextFieldFormatter tff = new TextFieldFormatter();
+        tff.setMask("###.###.###-##");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txtCpf);
+        tff.formatter();
+    }
+
+    @FXML
+    private void maskFone(KeyEvent event) {
+        
+        TextFieldFormatter tff = new TextFieldFormatter();
+        tff.setMask("(##)####-####");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txtTelefone);
+        tff.formatter();
     }
 
 }

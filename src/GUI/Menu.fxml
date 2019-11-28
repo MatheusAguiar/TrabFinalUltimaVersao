@@ -55,7 +55,7 @@
                </graphic>
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaEmprestimo1" text="Realizar Empréstimo" />
-                  <MenuItem mnemonicParsing="false" text="Consultar" />
+                  <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaConsultaEmprestimo" text="Consultar" />
                </items>
           </Menu>
         </menus>

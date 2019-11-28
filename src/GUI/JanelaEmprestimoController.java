@@ -407,20 +407,35 @@ public class JanelaEmprestimoController implements Initializable {
     @FXML
     private void emprestar(ActionEvent event) {
 
-        Emprestimo emp = new Emprestimo();
-        emp.setDataretirada(txtDataEmprestimo.getText());
-        emp.setDataDevolucao(txtDataDevolucao.getText());
-        emp.setObservacao(txtObs.getText());
-        Usuario u = new Usuario();
-        u.setId(Integer.valueOf(txtUser.getText()));
-        emp.setUsuario(u);
-        Exemplar ex = new Exemplar();
-        ex.setId(Integer.valueOf(txtExemplar.getText()));
-        emp.setExemplar(ex);
-        Funcionario f = new Funcionario();
-        f.setId(Integer.valueOf(txtFunc.getText()));
-        emp.setFuncionario(f);
-        servicoemprestimo.salvar(emp);
+        Exemplar exemplar = tabelaExemplar.getSelectionModel().getSelectedItem();
+        int numExemplar = exemplar.getNumExemplar();
+
+        if (numExemplar == 0) {
+
+            mensagemErro("Exemplar Indisponível");
+
+        } else {
+
+            Exemplar ex = new Exemplar();
+
+            Emprestimo emp = new Emprestimo();
+            emp.setDataretirada(txtDataEmprestimo.getText());
+            emp.setDataDevolucao(txtDataDevolucao.getText());
+            emp.setObservacao(txtObs.getText());
+            Usuario u = new Usuario();
+            u.setId(Integer.valueOf(txtUser.getText()));
+            emp.setUsuario(u);
+
+            ex.setId(Integer.valueOf(txtExemplar.getText()));
+            emp.setExemplar(ex);
+            Funcionario f = new Funcionario();
+            f.setId(Integer.valueOf(txtFunc.getText()));
+            emp.setFuncionario(f);
+            servicoemprestimo.salvar(emp);
+            listarExemplaresTabela();
+            listarEmprestimos();
+
+        }
 
         //Exibindo mensagem
     }

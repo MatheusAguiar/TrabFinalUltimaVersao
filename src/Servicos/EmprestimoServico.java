@@ -7,6 +7,8 @@ package Servicos;
 
 import DAO.EmprestimoDAO;
 import dados.entidade.Emprestimo;
+import dados.entidade.Exemplar;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -34,5 +36,24 @@ public class EmprestimoServico {
         return dao.listar();
         
     }
+     
+      public List<Emprestimo> pesquisaNomeFunc(String n) {
+
+        return dao.pesquisaNomeFunc(n);
+
+    }
+      
+       public List<Emprestimo> pesquisaNomeUser(String n) {
+
+        return dao.pesquisaNomeUser(n);
+
+    }
+       
+       public List<Emprestimo> pesquisaExemplar(String n) {
+
+        return dao.pesquisaExemplar(n);
+
+    }
+    
     
 }

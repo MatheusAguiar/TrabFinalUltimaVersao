@@ -51,10 +51,10 @@
       <JFXButton fx:id="btnEditar" layoutX="972.0" layoutY="355.0" onAction="#editar" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EDITAR" />
       <JFXButton fx:id="btnExcluir" layoutX="1045.0" layoutY="355.0" onAction="#excluir" prefHeight="32.0" prefWidth="79.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EXCLUIR" />
       <JFXTextField fx:id="txtNome" focusColor="#41e8e8" layoutX="752.0" layoutY="151.0" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" layoutX="752.0" layoutY="180.0" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" layoutX="752.0" layoutY="180.0" onKeyReleased="#maskCpf" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtEndereco" focusColor="#41e8e8" layoutX="752.0" layoutY="210.0" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtEmail" focusColor="#41e8e8" layoutX="752.0" layoutY="246.0" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtTelefone" focusColor="#41e8e8" layoutX="752.0" layoutY="281.0" prefHeight="25.0" prefWidth="139.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtTelefone" focusColor="#41e8e8" layoutX="752.0" layoutY="281.0" onKeyReleased="#maskFone" prefHeight="25.0" prefWidth="139.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtContrato" focusColor="#41e8e8" layoutX="752.0" layoutY="317.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
       <JFXDatePicker fx:id="txtFimContrato" defaultColor="#41e8e8" layoutX="771.0" layoutY="350.0" prefHeight="25.0" prefWidth="129.0" />
    </children>

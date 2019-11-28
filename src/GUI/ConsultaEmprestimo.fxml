@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ConsultaEmprestimoController">
+    <stylesheets>
+        <URL value="@consultaemprestimo.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="30.0" layoutY="43.0" text="Pequisar Por:">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tabelaEmprestimo" layoutX="27.0" layoutY="148.0" prefHeight="246.0" prefWidth="752.0" style="-fx-border-color: black;">
+         <columns>
+            <TableColumn fx:id="funcionario" prefWidth="114.0" text="Funcionário" />
+            <TableColumn fx:id="usuario" prefWidth="103.0" text="Usuário" />
+            <TableColumn fx:id="exemplar" prefWidth="106.0" text="Exemplar" />
+            <TableColumn fx:id="dataEmprestimo" prefWidth="117.0" text="Data Empréstimo" />
+            <TableColumn fx:id="dataDevolucao" prefWidth="116.0" text="Data Devolução" />
+            <TableColumn fx:id="observacao" prefWidth="193.0" text="Observações" />
+         </columns>
+      </TableView>
+      <JFXRadioButton fx:id="rbFuncionario" layoutX="161.0" layoutY="45.0" text="Funcionário">
+         <toggleGroup>
+            <ToggleGroup fx:id="Pesquisa" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rbExemplar" layoutX="333.0" layoutY="46.0" text="Exemplar" toggleGroup="$Pesquisa" />
+      <JFXRadioButton fx:id="rbUsuario" layoutX="254.0" layoutY="45.0" text="Usuário" toggleGroup="$Pesquisa" />
+      <JFXTextField fx:id="txtPesquisa" focusColor="#41e8e8" layoutX="30.0" layoutY="89.0" prefHeight="25.0" prefWidth="641.0" unFocusColor="#1377da" />
+      <JFXButton fx:id="btnPesquisar" layoutX="690.0" layoutY="86.0" onAction="#pesquisar" prefHeight="32.0" prefWidth="102.0" ripplerFill="#1bc9ff" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="PESQUISAR" />
+   </children>
+</AnchorPane>

@@ -8,6 +8,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="311.0" prefWidth="587.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginController">
@@ -37,7 +39,15 @@
       </ImageView>
       <JFXTextField fx:id="txtUsuario" focusColor="#41e8e8" layoutX="332.0" layoutY="93.0" prefHeight="25.0" prefWidth="193.0" unFocusColor="#1377da" />
       <JFXPasswordField fx:id="txtSenha" focusColor="#41e8e8" layoutX="332.0" layoutY="142.0" prefHeight="25.0" prefWidth="193.0" unFocusColor="#1377da" />
-      <JFXButton fx:id="btnAcessar" layoutX="257.0" layoutY="209.0" onAction="#clickAcessar" prefHeight="55.0" prefWidth="130.0" text="         ACESSAR" />
+      <JFXButton fx:id="btnAcessar" layoutX="257.0" layoutY="209.0" onAction="#clickAcessar" prefHeight="55.0" prefWidth="130.0" text="         ACESSAR">
+         <ripplerFill>
+            <RadialGradient centerX="0.5166666666666666" centerY="0.49047619047619045" radius="0.5116279069767442">
+               <stops>
+                  <Stop color="#39c1eb" />
+                  <Stop color="#38c1ea" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill></JFXButton>
       <JFXButton fx:id="btnCadastrar" layoutX="404.0" layoutY="215.0" onAction="#CadastrarFunc" prefHeight="44.0" prefWidth="130.0" text="CADASTRAR">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
@@ -46,6 +56,14 @@
                </image>
             </ImageView>
          </graphic>
+         <ripplerFill>
+            <RadialGradient centerX="0.5166666666666666" centerY="0.5095238095238095" radius="0.5232558139534884">
+               <stops>
+                  <Stop color="#39c1eb" />
+                  <Stop color="#38c1ea" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
       </JFXButton>
    </children>
 </AnchorPane>

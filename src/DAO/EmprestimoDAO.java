@@ -1,8 +1,15 @@
 package DAO;
 
+import UTIL.Conexao;
+import static UTIL.Conexao.Conexao;
 import dados.entidade.Emprestimo;
 import javax.persistence.EntityManager;
 import UTIL.JPAUtil;
+import dados.entidade.Exemplar;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.TypedQuery;
 
@@ -26,6 +33,7 @@ public class EmprestimoDAO {
         gerenciador.getTransaction().commit();
 
     }
+
     
     public List<Emprestimo> listar() {
 
@@ -37,6 +45,45 @@ public class EmprestimoDAO {
                 "Select emprestimo from Emprestimo emprestimo", Emprestimo.class);
 
         //Retornar a lista de exemplares
+        return consulta.getResultList();
+
+    }
+    
+     public List<Emprestimo> pesquisaNomeFunc(String n) {
+
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+
+        TypedQuery<Emprestimo> consulta = gerenciador.createQuery(
+                "select emp from Emprestimo emp inner join Funcionario func on func.id = emp.funcionario AND nome like :nome", Emprestimo.class);
+
+        consulta.setParameter("nome", "%" + n + "%");
+
+        return consulta.getResultList();
+
+    }
+     
+      public List<Emprestimo> pesquisaNomeUser(String n) {
+
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+
+        TypedQuery<Emprestimo> consulta = gerenciador.createQuery(
+                "select emp from Emprestimo emp inner join Usuario user on user.id = emp.usuario AND nome like :nome", Emprestimo.class);
+
+        consulta.setParameter("nome", "%" + n + "%");
+
+        return consulta.getResultList();
+
+    }
+      
+      public List<Emprestimo> pesquisaExemplar(String n) {
+
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+
+        TypedQuery<Emprestimo> consulta = gerenciador.createQuery(
+                "select emp from Emprestimo emp inner join Exemplar ex on ex.id = emp.emprestimo AND titulo like :titulo", Emprestimo.class);
+
+        consulta.setParameter("titulo", "%" + n + "%");
+
         return consulta.getResultList();
 
     }

@@ -55,10 +55,10 @@
       <JFXTextField fx:id="txtId" focusColor="#41e8e8" layoutX="767.0" layoutY="124.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtContrato" focusColor="#41e8e8" layoutX="767.0" layoutY="147.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtNome" focusColor="#41e8e8" layoutX="767.0" layoutY="186.0" prefHeight="25.0" prefWidth="268.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" layoutX="767.0" layoutY="215.0" prefHeight="25.0" prefWidth="268.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" layoutX="767.0" layoutY="215.0" onKeyReleased="#maskCpf" prefHeight="25.0" prefWidth="268.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtEndereco" focusColor="#41e8e8" layoutX="767.0" layoutY="245.0" prefHeight="25.0" prefWidth="268.0" unFocusColor="#1377da" />
       <JFXTextField fx:id="txtEmail" focusColor="#41e8e8" layoutX="767.0" layoutY="281.0" prefHeight="25.0" prefWidth="268.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtTelefone" focusColor="#41e8e8" layoutX="767.0" layoutY="316.0" prefHeight="25.0" prefWidth="130.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtTelefone" focusColor="#41e8e8" layoutX="767.0" layoutY="316.0" onKeyReleased="#maskFone" prefHeight="25.0" prefWidth="130.0" unFocusColor="#1377da" />
       <JFXRadioButton fx:id="rbSim" layoutX="759.0" layoutY="365.0" text="SIM">
          <toggleGroup>
             <ToggleGroup fx:id="Ativo" />
