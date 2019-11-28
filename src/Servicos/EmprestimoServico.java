@@ -28,12 +28,37 @@ public class EmprestimoServico {
         dao.salvar(a);
     }
     
+     public void editar(Emprestimo emp) {
+
+        dao.editar(emp);
+
+    }
+    
      public List<Emprestimo> listar(){
         
         //Qualquer regra de negócio (se aplicável)
         
         //Pedir a DAO para listar e retornar
         return dao.listar();
+        
+    }
+     
+     public List<Emprestimo> listarEmprestimosDevolvidos(){
+        
+        //Qualquer regra de negócio (se aplicável)
+        
+        //Pedir a DAO para listar e retornar
+        return dao.listarEmprestimosDevolvidos();
+        
+    }
+     
+     
+     public List<Emprestimo> pesquisarPorData(String dataini, String datafim){
+        
+        //Qualquer regra de negócio (se aplicável)
+        
+        //Pedir a DAO para listar e retornar
+        return dao.pesquisarPorData(dataini, datafim);
         
     }
      

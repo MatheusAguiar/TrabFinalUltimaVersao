@@ -1,6 +1,5 @@
 package dados.entidade;
 
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,25 +8,31 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Emprestimo {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
+
     private String dataretirada;
     private String dataDevolucao;
     private String observacao;
-  
+    private Boolean devolvido;
 
-  
-    
-    @ManyToOne(optional=false)
+    public Boolean getDevolvido() {
+        return devolvido;
+    }
+
+    public void setDevolvido(Boolean devolvido) {
+        this.devolvido = devolvido;
+    }
+
+    @ManyToOne(optional = false)
     private Funcionario funcionario;
-    
-    @ManyToOne(optional=false)
+
+    @ManyToOne(optional = false)
     private Exemplar exemplar;
-    
-    @ManyToOne(optional=false)
+
+    @ManyToOne(optional = false)
     private Usuario usuario;
 
     public Integer getId() {
@@ -37,8 +42,7 @@ public class Emprestimo {
     public void setId(Integer id) {
         this.id = id;
     }
-   
-    
+
     public String getDataretirada() {
         return dataretirada;
     }
@@ -54,7 +58,6 @@ public class Emprestimo {
     public void setDataDevolucao(String dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
-
 
     public String getObservacao() {
         return observacao;
@@ -87,14 +90,11 @@ public class Emprestimo {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
-  
-    
-    
-    public void finalizarEmprestimo(Livro livro, Usuario usuario){}
-    
-    public void cadastraEmprestimo (Livro livro, Usuario usuario){}
-    
-  
-}
 
+    public void finalizarEmprestimo(Livro livro, Usuario usuario) {
+    }
+
+    public void cadastraEmprestimo(Livro livro, Usuario usuario) {
+    }
+
+}

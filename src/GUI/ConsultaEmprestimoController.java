@@ -48,8 +48,6 @@ public class ConsultaEmprestimoController implements Initializable {
     @FXML
     private JFXRadioButton rbFuncionario;
     @FXML
-    private ToggleGroup Selecione;
-    @FXML
     private JFXRadioButton rbExemplar;
     @FXML
     private JFXRadioButton rbUsuario;
@@ -62,20 +60,32 @@ public class ConsultaEmprestimoController implements Initializable {
             = FXCollections.observableArrayList();
 
     private EmprestimoServico servico = new EmprestimoServico();
+    @FXML
+    private TableColumn devolvido;
+    @FXML
+    private ToggleGroup Pesquisa;
+    @FXML
+    private JFXRadioButton rbEmpDevolvido;
+    @FXML
+    private JFXTextField txtDataIni;
+    @FXML
+    private JFXTextField txtDataFim;
+    @FXML
+    private JFXButton btnPesquisarData;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       configurarTabela();
-       listarEmprestimos();
+        configurarTabela();
+        listarEmprestimos();
     }
 
     @FXML
     private void pesquisar(ActionEvent event) {
 
-        if (!(rbFuncionario.isSelected() || rbUsuario.isSelected() || rbExemplar.isSelected())) {
+        if (!(rbFuncionario.isSelected() || rbUsuario.isSelected() || rbExemplar.isSelected()  || rbEmpDevolvido.isSelected())) {
             mensagemErro("Selecione um campo de pesquisa.");
         } else if (rbFuncionario.isSelected()) {
             // Quando seleciona PESQUISA Funcionário
@@ -92,8 +102,12 @@ public class ConsultaEmprestimoController implements Initializable {
 
             pesquisaExemplar();
 
-        }
+        } else if (rbEmpDevolvido.isSelected()) {
+            // Quando seleciona PESQUISA Exemplares
 
+            listarEmprestimosDevolvidos();
+
+        }
     }
 
     private void pesquisaNomeFunc() {
@@ -113,8 +127,8 @@ public class ConsultaEmprestimoController implements Initializable {
         tabelaEmprestimo.setItems(dados);
 
     }
-    
-     private void pesquisaNomeUser() {
+
+    private void pesquisaNomeUser() {
 
         dados.clear();
 
@@ -131,8 +145,8 @@ public class ConsultaEmprestimoController implements Initializable {
         tabelaEmprestimo.setItems(dados);
 
     }
-     
-      private void pesquisaExemplar() {
+
+    private void pesquisaExemplar() {
 
         dados.clear();
 
@@ -149,10 +163,10 @@ public class ConsultaEmprestimoController implements Initializable {
         tabelaEmprestimo.setItems(dados);
 
     }
-      
-      private void configurarTabela(){
-      
-       funcionario.setCellValueFactory(
+
+    private void configurarTabela() {
+
+        funcionario.setCellValueFactory(
                 new PropertyValueFactory("funcionario"));
 
         usuario.setCellValueFactory(
@@ -170,10 +184,12 @@ public class ConsultaEmprestimoController implements Initializable {
         observacao.setCellValueFactory(
                 new PropertyValueFactory("observacao"));
 
+        devolvido.setCellValueFactory(
+                new PropertyValueFactory("devolvido"));
+
     }//configurarTabela  
-      
-      
-      private void listarEmprestimos() {
+
+    private void listarEmprestimos() {
         //Limpando quaisquer dados anteriores
         dados.clear();
 
@@ -188,16 +204,52 @@ public class ConsultaEmprestimoController implements Initializable {
         tabelaEmprestimo.setItems(dados);
 
     }
-      
-      
-      
-      
-       public void mensagemErro(String m) {
+
+    private void listarEmprestimosDevolvidos() {
+        //Limpando quaisquer dados anteriores
+        dados.clear();
+
+        //Solicitando a camada de servico a lista de funcionários
+        List<Emprestimo> emprestimos = servico.listarEmprestimosDevolvidos();
+
+        //Transformar a lista de atores no formato que a tabela
+        //do JavaFX aceita
+        dados = FXCollections.observableArrayList(emprestimos);
+
+        //Jogando os dados na tabela
+        tabelaEmprestimo.setItems(dados);
+
+    }
+        
+
+    public void mensagemErro(String m) {
         Alert alerta = new Alert(Alert.AlertType.ERROR);
         alerta.setTitle("ERRO!");
         alerta.setHeaderText(null);
         alerta.setContentText(m);
         alerta.showAndWait();
+    }
+
+    @FXML
+    private void pesquisarporData(ActionEvent event) {
+        
+        
+         dados.clear();
+
+        String dataini = txtDataIni.getText();
+        String datafim = txtDataFim.getText();
+
+        //Solicitando a camada de servico a lista de usuarios
+        List<Emprestimo> emprestimos = servico.pesquisarPorData(dataini,datafim);
+
+        //Transformar a lista de atores no formato que a tabela
+        //do JavaFX aceita
+        dados = FXCollections.observableArrayList(emprestimos);
+
+        //Jogando os dados na tabela
+        tabelaEmprestimo.setItems(dados);
+        
+        
     }
 
 }

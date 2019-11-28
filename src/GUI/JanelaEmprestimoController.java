@@ -10,19 +10,19 @@ import Servicos.ExemplarServico;
 import Servicos.FuncionarioServico;
 import Servicos.UsuarioServico;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import dados.entidade.Emprestimo;
 import dados.entidade.Exemplar;
 import dados.entidade.Funcionario;
-import dados.entidade.Livro;
 import dados.entidade.Usuario;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,6 +30,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
@@ -106,6 +107,8 @@ public class JanelaEmprestimoController implements Initializable {
     private ObservableList<Emprestimo> dadosemprestimo
             = FXCollections.observableArrayList();
 
+    private Emprestimo emprestimoselecionado;
+
     @FXML
     private JFXTextField txtDataEmprestimo;
     @FXML
@@ -136,6 +139,10 @@ public class JanelaEmprestimoController implements Initializable {
     private JFXButton btnEmprestar;
     @FXML
     private JFXButton btnDevolver;
+    @FXML
+    private TableColumn devolvido;
+    @FXML
+    private JFXCheckBox chDevolver;
 
     /**
      * Initializes the controller class.
@@ -143,6 +150,7 @@ public class JanelaEmprestimoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        chDevolver.setVisible(false);
         configurarTabela();
         HORA_DATA();
         listarFuncionariosTabela();
@@ -275,6 +283,8 @@ public class JanelaEmprestimoController implements Initializable {
 
         observacao.setCellValueFactory(
                 new PropertyValueFactory("observacao"));
+        devolvido.setCellValueFactory(
+                new PropertyValueFactory("devolvido"));
 
     }//configurarTabela  
 
@@ -422,6 +432,13 @@ public class JanelaEmprestimoController implements Initializable {
             emp.setDataretirada(txtDataEmprestimo.getText());
             emp.setDataDevolucao(txtDataDevolucao.getText());
             emp.setObservacao(txtObs.getText());
+            if (chDevolver.isSelected()) {
+
+                emp.setDevolvido(true);
+            } else {
+
+                emp.setDevolvido(false);
+            }
             Usuario u = new Usuario();
             u.setId(Integer.valueOf(txtUser.getText()));
             emp.setUsuario(u);
@@ -454,6 +471,97 @@ public class JanelaEmprestimoController implements Initializable {
         //Jogando os dados na tabela
         tabelaEmprestimo.setItems(dadosemprestimo);
 
+    }
+
+    @FXML
+    private void pegarEmprestimo(MouseEvent event) {
+        
+       Emprestimo emp = tabelaEmprestimo.getSelectionModel().getSelectedItem();
+        Boolean devolvido = emp.getDevolvido();
+        
+        if(devolvido == true){
+        
+            mensagemErro("Exemplar já devolvido!");
+        
+        }
+        else{
+            
+            chDevolver.setVisible(true);
+        //Pegar o usuario que foi selecionado na tabela
+        emprestimoselecionado = tabelaEmprestimo.getSelectionModel()
+                .getSelectedItem();
+
+        //Se tem algum usuario selecionado
+        if (emprestimoselecionado != null) { //tem usuario selecionado
+            //Pegar os dados do usuario e jogar nos campos do
+            //formulario
+            if (chDevolver.isSelected()) {
+
+                emprestimoselecionado.setDevolvido(true);
+            } else {
+
+                emprestimoselecionado.setDevolvido(false);
+            }
+
+        } else { //não tem usuario selecionado na tabela
+            mensagemErro("Selecione um Emprestimo.");
+        }
+        
+        }
+        
+
+    }
+
+    @FXML
+    private void devolver(ActionEvent event) {
+
+        Optional<ButtonType> btn
+                = mensagemDeConfirmacao("Deseja mesmo devolver o exemplar?",
+                        "EDITAR");
+
+        //Se o botão OK foi pressionado
+        if (btn.get() == ButtonType.OK) {
+            //Pegar os novos dados do formulário e
+            //atualizar o usuario
+
+            if (chDevolver.isSelected()) {
+
+                emprestimoselecionado.setDevolvido(true);
+            } else {
+
+                emprestimoselecionado.setDevolvido(false);
+            }
+
+            //Mandando pra camada de serviço salvar as alterações
+            servicoemprestimo.editar(emprestimoselecionado);
+
+            //Exibindo mensagem
+            mensagemSucesso("Exemplar devolvido com sucesso!");
+            chDevolver.setVisible(false);
+
+            //Chama o metodo para atualizar a tabela
+            listarEmprestimos();
+            listarExemplaresTabela();
+
+        }
+
+    }
+
+    private Optional<ButtonType> mensagemDeConfirmacao(
+            String mensagem, String titulo) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+        return alert.showAndWait();
+    }
+
+    public void mensagemSucesso(String m) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("SUCESSO!");
+        alerta.setHeaderText(null);
+        alerta.setContentText(m);
+        alerta.showAndWait();
     }
 
 }
