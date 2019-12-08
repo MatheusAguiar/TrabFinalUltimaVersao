@@ -14,41 +14,16 @@
         <URL value="@cadastrarusuario.css" />
     </stylesheets>
    <children>
-      <Label layoutX="41.0" layoutY="84.0" text="Nome">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font></Label>
-      <Label layoutX="41.0" layoutY="132.0" text="CPF">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font></Label>
-      <Label layoutX="41.0" layoutY="181.0" text="Endereço">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font></Label>
-      <Label layoutX="41.0" layoutY="230.0" text="Email">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font></Label>
-      <Label layoutX="44.0" layoutY="276.0" text="Telefone">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font></Label>
       <Label layoutX="41.0" layoutY="324.0" text="Ativo">
          <font>
             <Font name="Arial Bold Italic" size="13.0" />
          </font></Label>
-      <Label layoutX="41.0" layoutY="44.0" text="Código Cadastro">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <JFXTextField fx:id="txtCodigo" focusColor="#41e8e8" layoutX="159.0" layoutY="32.0" prefHeight="25.0" prefWidth="47.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtNome" focusColor="#41e8e8" layoutX="86.0" layoutY="72.0" prefHeight="25.0" prefWidth="283.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" layoutX="87.0" layoutY="120.0" onKeyReleased="#maskCpf" prefHeight="25.0" prefWidth="283.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtEndereco" focusColor="#41e8e8" layoutX="112.0" layoutY="169.0" prefHeight="25.0" prefWidth="258.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtEmail" focusColor="#41e8e8" layoutX="111.0" layoutY="218.0" prefHeight="25.0" prefWidth="258.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtTelefone" focusColor="#41e8e8" layoutX="111.0" layoutY="264.0" onKeyReleased="#maskFone" prefHeight="25.0" prefWidth="132.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtCodigo" focusColor="#41e8e8" labelFloat="true" layoutX="41.0" layoutY="35.0" prefHeight="25.0" prefWidth="47.0" promptText="Cód. Cadastro" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtNome" focusColor="#41e8e8" labelFloat="true" layoutX="41.0" layoutY="77.0" prefHeight="25.0" prefWidth="283.0" promptText="Nome" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" labelFloat="true" layoutX="42.0" layoutY="125.0" onKeyReleased="#maskCpf" prefHeight="25.0" prefWidth="283.0" promptText="CPF" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEndereco" focusColor="#41e8e8" labelFloat="true" layoutX="41.0" layoutY="173.0" prefHeight="25.0" prefWidth="283.0" promptText="Endereço" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEmail" focusColor="#41e8e8" labelFloat="true" layoutX="41.0" layoutY="223.0" prefHeight="25.0" prefWidth="283.0" promptText="Email" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtTelefone" focusColor="#41e8e8" labelFloat="true" layoutX="42.0" layoutY="274.0" onKeyReleased="#maskFone" prefHeight="25.0" prefWidth="132.0" promptText="Fone" unFocusColor="#1377da" />
       <JFXRadioButton fx:id="rbSim" layoutX="100.0" layoutY="324.0" text="SIM">
          <toggleGroup>
             <ToggleGroup fx:id="Ativo" />

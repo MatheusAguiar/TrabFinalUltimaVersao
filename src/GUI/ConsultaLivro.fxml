@@ -7,9 +7,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="407.0" prefWidth="1146.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ConsultaLivroController">
+<AnchorPane id="AnchorPane" prefHeight="431.0" prefWidth="1111.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ConsultaLivroController">
     <stylesheets>
         <URL value="@consultalivro.css" />
     </stylesheets>
@@ -29,13 +31,6 @@
             <Font name="Arial Black" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="694.0" layoutY="139.0" text="ID" />
-      <Label layoutX="694.0" layoutY="185.0" text="Título" />
-      <Label layoutX="697.0" layoutY="218.0" text="Ano" />
-      <Label layoutX="690.0" layoutY="259.0" text="Gênero" />
-      <Label layoutX="694.0" layoutY="293.0" text="Autores" />
-      <Label layoutX="694.0" layoutY="323.0" text="Volume" />
-      <Label layoutX="696.0" layoutY="358.0" text="Editora" />
       <TableView id="tabela" fx:id="tabelaConsultaLivro" layoutX="14.0" layoutY="135.0" onMouseClicked="#mouseClick" prefHeight="261.0" prefWidth="629.0" style="-fx-border-color: black;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css">
         <columns>
           <TableColumn id="colum-id" fx:id="id" prefWidth="45.0" styleClass="mainFxmlClass" text="ID" />
@@ -47,16 +42,40 @@
             <TableColumn fx:id="editora" prefWidth="133.0" text="Editora" />
         </columns>
       </TableView>
-      <JFXTextField fx:id="txtPesquisaLivro" focusColor="#41e8e8" layoutX="14.0" layoutY="79.0" prefHeight="32.0" prefWidth="500.0" unFocusColor="#1377da" />
-      <JFXButton fx:id="btnPesquisar" layoutX="524.0" layoutY="86.0" onAction="#buscarPorTitulo" prefHeight="32.0" prefWidth="119.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="PESQUISAR" />
-      <JFXTextField fx:id="txtId" focusColor="#41e8e8" layoutX="748.0" layoutY="127.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtTitulo" focusColor="#41e8e8" layoutX="748.0" layoutY="173.0" prefHeight="25.0" prefWidth="220.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtAno" focusColor="#41e8e8" layoutX="748.0" layoutY="206.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtGenereo" focusColor="#41e8e8" layoutX="748.0" layoutY="247.0" prefHeight="25.0" prefWidth="220.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtAutor" focusColor="#41e8e8" layoutX="748.0" layoutY="281.0" prefHeight="25.0" prefWidth="220.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtEditora" focusColor="#41e8e8" layoutX="748.0" layoutY="354.0" prefHeight="25.0" prefWidth="180.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtVolume" focusColor="#41e8e8" layoutX="748.0" layoutY="319.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
-      <JFXButton fx:id="btnEditar" layoutX="978.0" layoutY="351.0" onAction="#editar" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EDITAR" />
-      <JFXButton fx:id="btnExcluir" layoutX="1051.0" layoutY="351.0" onAction="#excluir" prefHeight="32.0" prefWidth="79.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EXCLUIR" />
+      <JFXTextField fx:id="txtPesquisaLivro" focusColor="#41e8e8" layoutX="14.0" layoutY="79.0" prefHeight="32.0" prefWidth="500.0" promptText="Informe o título do livro" unFocusColor="#1377da" />
+      <JFXButton fx:id="btnPesquisar" layoutX="524.0" layoutY="86.0" onAction="#buscarPorTitulo" prefHeight="32.0" prefWidth="119.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="PESQUISAR">
+         <ripplerFill>
+            <LinearGradient endX="0.9047619047619048" endY="0.8333333333333334">
+               <stops>
+                  <Stop color="#2ddaa9" />
+                  <Stop color="#b1fbe6" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </ripplerFill></JFXButton>
+      <JFXTextField fx:id="txtId" focusColor="#41e8e8" labelFloat="true" layoutX="696.0" layoutY="135.0" prefHeight="25.0" prefWidth="66.0" promptText="ID" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtTitulo" focusColor="#41e8e8" labelFloat="true" layoutX="696.0" layoutY="181.0" prefHeight="25.0" prefWidth="220.0" promptText="Título" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtAno" focusColor="#41e8e8" labelFloat="true" layoutX="696.0" layoutY="214.0" prefHeight="25.0" prefWidth="66.0" promptText="Ano" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtGenereo" focusColor="#41e8e8" labelFloat="true" layoutX="696.0" layoutY="255.0" prefHeight="25.0" prefWidth="220.0" promptText="Gênero" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtAutor" focusColor="#41e8e8" labelFloat="true" layoutX="696.0" layoutY="289.0" prefHeight="25.0" prefWidth="220.0" promptText="Autor(es)" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEditora" focusColor="#41e8e8" labelFloat="true" layoutX="696.0" layoutY="362.0" prefHeight="25.0" prefWidth="180.0" promptText="Editora" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtVolume" focusColor="#41e8e8" labelFloat="true" layoutX="696.0" layoutY="327.0" prefHeight="25.0" prefWidth="66.0" promptText="Volume" unFocusColor="#1377da" />
+      <JFXButton fx:id="btnEditar" layoutX="945.0" layoutY="387.0" onAction="#editar" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EDITAR">
+         <ripplerFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#b1fbe6" />
+                  <Stop color="#b1fbe6" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </ripplerFill></JFXButton>
+      <JFXButton fx:id="btnExcluir" layoutX="1018.0" layoutY="387.0" onAction="#excluir" prefHeight="32.0" prefWidth="79.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EXCLUIR">
+         <ripplerFill>
+            <LinearGradient endX="0.9047619047619048" endY="0.8333333333333334">
+               <stops>
+                  <Stop color="#2ddaa9" />
+                  <Stop color="#b1fbe6" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </ripplerFill></JFXButton>
    </children>
 </AnchorPane>

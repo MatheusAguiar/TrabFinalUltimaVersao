@@ -4,29 +4,17 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="311.0" prefWidth="587.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="311.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginController">
     <stylesheets>
         <URL value="@login.css" />
     </stylesheets>
    <children>
-      <Label layoutX="263.0" layoutY="99.0" text="Usuário">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="263.0" layoutY="142.0" text="Senha">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
       <ImageView fitHeight="186.0" fitWidth="225.0" layoutX="42.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagens/login.png" />
@@ -37,9 +25,9 @@
             <Image url="@../imagens/entrar.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtUsuario" focusColor="#41e8e8" layoutX="332.0" layoutY="93.0" prefHeight="25.0" prefWidth="193.0" unFocusColor="#1377da" />
-      <JFXPasswordField fx:id="txtSenha" focusColor="#41e8e8" layoutX="332.0" layoutY="142.0" prefHeight="25.0" prefWidth="193.0" unFocusColor="#1377da" />
-      <JFXButton fx:id="btnAcessar" layoutX="257.0" layoutY="209.0" onAction="#clickAcessar" prefHeight="55.0" prefWidth="130.0" text="         ACESSAR">
+      <JFXTextField fx:id="txtUsuario" focusColor="#41e8e8" labelFloat="true" layoutX="332.0" layoutY="93.0" prefHeight="25.0" prefWidth="193.0" promptText="Email" unFocusColor="#1377da" />
+      <JFXPasswordField fx:id="txtSenha" focusColor="#41e8e8" labelFloat="true" layoutX="332.0" layoutY="142.0" prefHeight="25.0" prefWidth="193.0" promptText="Senha" unFocusColor="#1377da" />
+      <JFXButton fx:id="btnAcessar" layoutX="257.0" layoutY="215.0" onAction="#clickAcessar" prefHeight="44.0" prefWidth="130.0" text=" ACESSAR">
          <ripplerFill>
             <RadialGradient centerX="0.5166666666666666" centerY="0.49047619047619045" radius="0.5116279069767442">
                <stops>
@@ -49,13 +37,6 @@
             </RadialGradient>
          </ripplerFill></JFXButton>
       <JFXButton fx:id="btnCadastrar" layoutX="404.0" layoutY="215.0" onAction="#CadastrarFunc" prefHeight="44.0" prefWidth="130.0" text="CADASTRAR">
-         <graphic>
-            <ImageView fitHeight="35.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imagens/cadastrar.png" />
-               </image>
-            </ImageView>
-         </graphic>
          <ripplerFill>
             <RadialGradient centerX="0.5166666666666666" centerY="0.5095238095238095" radius="0.5232558139534884">
                <stops>

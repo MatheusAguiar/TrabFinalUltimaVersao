@@ -47,7 +47,6 @@ public class ConsultaEmprestimoController implements Initializable {
     private TableColumn observacao;
     @FXML
     private JFXRadioButton rbFuncionario;
-    @FXML
     private JFXRadioButton rbExemplar;
     @FXML
     private JFXRadioButton rbUsuario;
@@ -66,12 +65,8 @@ public class ConsultaEmprestimoController implements Initializable {
     private ToggleGroup Pesquisa;
     @FXML
     private JFXRadioButton rbEmpDevolvido;
-    @FXML
     private JFXTextField txtDataIni;
-    @FXML
     private JFXTextField txtDataFim;
-    @FXML
-    private JFXButton btnPesquisarData;
 
     /**
      * Initializes the controller class.
@@ -85,7 +80,7 @@ public class ConsultaEmprestimoController implements Initializable {
     @FXML
     private void pesquisar(ActionEvent event) {
 
-        if (!(rbFuncionario.isSelected() || rbUsuario.isSelected() || rbExemplar.isSelected()  || rbEmpDevolvido.isSelected())) {
+        if (!(rbFuncionario.isSelected() || rbUsuario.isSelected() || rbEmpDevolvido.isSelected())) {
             mensagemErro("Selecione um campo de pesquisa.");
         } else if (rbFuncionario.isSelected()) {
             // Quando seleciona PESQUISA Funcionário
@@ -97,12 +92,7 @@ public class ConsultaEmprestimoController implements Initializable {
 
             pesquisaNomeUser();
 
-        } else if (rbExemplar.isSelected()) {
-            // Quando seleciona PESQUISA Exemplares
-
-            pesquisaExemplar();
-
-        } else if (rbEmpDevolvido.isSelected()) {
+        }  else if (rbEmpDevolvido.isSelected()) {
             // Quando seleciona PESQUISA Exemplares
 
             listarEmprestimosDevolvidos();
@@ -146,23 +136,7 @@ public class ConsultaEmprestimoController implements Initializable {
 
     }
 
-    private void pesquisaExemplar() {
-
-        dados.clear();
-
-        String nome = txtPesquisa.getText();
-
-        //Solicitando a camada de servico a lista de usuarios
-        List<Emprestimo> emprestimos = servico.pesquisaExemplar(nome);
-
-        //Transformar a lista de atores no formato que a tabela
-        //do JavaFX aceita
-        dados = FXCollections.observableArrayList(emprestimos);
-
-        //Jogando os dados na tabela
-        tabelaEmprestimo.setItems(dados);
-
-    }
+   
 
     private void configurarTabela() {
 
@@ -230,26 +204,6 @@ public class ConsultaEmprestimoController implements Initializable {
         alerta.showAndWait();
     }
 
-    @FXML
-    private void pesquisarporData(ActionEvent event) {
-        
-        
-         dados.clear();
-
-        String dataini = txtDataIni.getText();
-        String datafim = txtDataFim.getText();
-
-        //Solicitando a camada de servico a lista de usuarios
-        List<Emprestimo> emprestimos = servico.pesquisarPorData(dataini,datafim);
-
-        //Transformar a lista de atores no formato que a tabela
-        //do JavaFX aceita
-        dados = FXCollections.observableArrayList(emprestimos);
-
-        //Jogando os dados na tabela
-        tabelaEmprestimo.setItems(dados);
-        
-        
-    }
+    
 
 }

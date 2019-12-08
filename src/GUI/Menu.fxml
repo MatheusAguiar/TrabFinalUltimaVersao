@@ -33,7 +33,6 @@
           <Menu mnemonicParsing="false" text="Consultas">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaConsultaLivro" text="Livros" />
-                  <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaConsultaExemplar" text="Exemplares" />
                   <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaConsultaUsuario" text="Usuários" />
               <MenuItem mnemonicParsing="false" onAction="#AbrirJanelaConsultaFunc" text="Funcionários" />
             </items>

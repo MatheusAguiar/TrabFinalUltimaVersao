@@ -4,63 +4,21 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="426.0" prefWidth="561.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CadastrarFuncionarioController">
+<AnchorPane id="AnchorPane" prefHeight="426.0" prefWidth="481.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CadastrarFuncionarioController">
     <stylesheets>
         <URL value="@cadastrarfuncionario.css" />
     </stylesheets>
    <children>
-      <Label layoutX="69.0" layoutY="58.0" text="Nome">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="69.0" layoutY="164.0" text="Email">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="69.0" layoutY="286.0" text="Código Contrato">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="69.0" layoutY="93.0" text="CPF">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="58.0" layoutY="128.0" text="Endereço">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="61.0" layoutY="200.0" text="Telefone">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="70.0" layoutY="242.0" text="Senha de Acesso">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="69.0" layoutY="326.0" text="Data Fim Contrato">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <JFXTextField fx:id="txtNome" focusColor="#41e8e8" layoutX="126.0" layoutY="46.0" prefHeight="25.0" prefWidth="273.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" layoutX="126.0" layoutY="89.0" onKeyReleased="#maskCpf" prefHeight="25.0" prefWidth="192.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtEndereco" focusColor="#41e8e8" layoutX="126.0" layoutY="124.0" prefHeight="25.0" prefWidth="273.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtEmail" focusColor="#41e8e8" layoutX="126.0" layoutY="160.0" prefHeight="25.0" prefWidth="192.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtFone" focusColor="#41e8e8" layoutX="127.0" layoutY="188.0" onKeyReleased="#maskTelefone" prefHeight="25.0" prefWidth="192.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtSenha" focusColor="#41e8e8" layoutX="194.0" layoutY="238.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtContrato" focusColor="#41e8e8" layoutX="194.0" layoutY="282.0" unFocusColor="#1377da" />
-      <JFXDatePicker fx:id="txtData" layoutX="194.0" layoutY="322.0" />
-      <JFXButton fx:id="btCadastro" layoutX="412.0" layoutY="370.0" onAction="#Cadastrar" prefHeight="32.0" prefWidth="102.0" ripplerFill="#1bc9ff" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="CADASTRAR" />
+      <JFXTextField fx:id="txtNome" focusColor="#41e8e8" labelFloat="true" layoutX="46.0" layoutY="53.0" prefHeight="25.0" prefWidth="273.0" promptText="Nome" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" labelFloat="true" layoutX="46.0" layoutY="96.0" onKeyReleased="#maskCpf" prefHeight="25.0" prefWidth="273.0" promptText="CPF" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEndereco" focusColor="#41e8e8" labelFloat="true" layoutX="46.0" layoutY="131.0" prefHeight="25.0" prefWidth="273.0" promptText="Endereço" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEmail" focusColor="#41e8e8" labelFloat="true" layoutX="46.0" layoutY="167.0" prefHeight="25.0" prefWidth="273.0" promptText="Email" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtFone" focusColor="#41e8e8" labelFloat="true" layoutX="47.0" layoutY="207.0" onKeyReleased="#maskTelefone" prefHeight="25.0" prefWidth="273.0" promptText="Fone" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtSenha" focusColor="#41e8e8" labelFloat="true" layoutX="47.0" layoutY="242.0" promptText="Senha" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtContrato" focusColor="#41e8e8" labelFloat="true" layoutX="47.0" layoutY="286.0" promptText="Cód.Cadastro" unFocusColor="#1377da" />
+      <JFXDatePicker fx:id="txtData" layoutX="47.0" layoutY="326.0" overLay="true" promptText="Data Fim Contrato" />
+      <JFXButton fx:id="btCadastro" layoutX="334.0" layoutY="358.0" onAction="#Cadastrar" prefHeight="32.0" prefWidth="102.0" ripplerFill="#1bc9ff" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="CADASTRAR" />
    </children>
 </AnchorPane>

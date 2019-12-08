@@ -2,6 +2,62 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
+* {
+    -fx-primary: #2a2e37;
+    -fx-primary-light: #535761;
+    -fx-primary-dark: #000311;
+    -fx-primary-text: white;
+    -fx-secondary: #41e8e8;
+    -fx-secondary-light: #ffffbe;
+    -fx-secondary-dark: #1377da;
+    -fx-secondary-text: black;   
+}
 
+.root{
+    -fx-background-color: white;
+    
+}
+
+.text-field
+{
+    -fx-prompt-text-fill: black; /*azul claro - floating label*/
+    -fx-text-fill: black; /*preto - input color*/
+    -jfx-focus-color: -fx-secondary-dark;
+    
+}
+
+.jfx-text-field{
+    -jfx-unfocus-color: -fx-primary-light;
+}
+
+
+
+
+.combo-box{
+   -jfx-focus-color: -fx-secondary-dark;
+}
+
+.combo-box .list-cell 
+{
+    -fx-text-fill: black;
+}
+
+.combo-box-popup .list-view 
+{
+    -fx-background-color: -fx-primary;
+}    
+
+.combo-box-popup .list-view .list-cell 
+{
+    -fx-background-color: -fx-primary;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover 
+{
+    -fx-background-color: -fx-selection-bar;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover 
+{
+    -fx-background-color: -fx-selection-bar;
 }

@@ -15,35 +15,15 @@
         <URL value="@cadastrarexemplar.css" />
     </stylesheets>
    <children>
-      <Label layoutX="51.0" layoutY="54.0" text="Livro">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="18.0" layoutY="254.0" text="Num. Exemplares">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
       <Label layoutX="50.0" layoutY="203.0" text="Disponível">
          <font>
             <Font name="Arial Bold Italic" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="51.0" layoutY="153.0" prefHeight="2.0" prefWidth="44.0" text="Tombo">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="46.0" layoutY="104.0" text="Edição">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <JFXTextField fx:id="txtEdicao" focusColor="#41e8e8" layoutX="103.0" layoutY="92.0" prefHeight="26.0" prefWidth="152.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtTombo" focusColor="#41e8e8" layoutX="103.0" layoutY="141.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtExemplares" focusColor="#41e8e8" layoutX="133.0" layoutY="242.0" unFocusColor="#1377da" />
-      <JFXComboBox fx:id="cboLivro" focusColor="#41e8e8" layoutX="100.0" layoutY="50.0" prefHeight="28.0" prefWidth="152.0" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEdicao" focusColor="#41e8e8" labelFloat="true" layoutX="50.0" layoutY="89.0" prefHeight="26.0" prefWidth="152.0" promptText="Edição" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtTombo" focusColor="#41e8e8" labelFloat="true" layoutX="50.0" layoutY="136.0" promptText="Tombo" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtExemplares" focusColor="#41e8e8" labelFloat="true" layoutX="54.0" layoutY="244.0" promptText="Num.Exemplares" unFocusColor="#1377da" />
+      <JFXComboBox fx:id="cboLivro" focusColor="#41e8e8" labelFloat="true" layoutX="50.0" layoutY="47.0" prefHeight="28.0" prefWidth="152.0" promptText="Livro" unFocusColor="#1377da" />
       <JFXRadioButton fx:id="rbSim" layoutX="130.0" layoutY="203.0" text="Sim">
          <toggleGroup>
             <ToggleGroup fx:id="disponivel" />

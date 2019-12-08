@@ -3,51 +3,19 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="421.0" prefWidth="453.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CadastroLivroController">
+<AnchorPane id="AnchorPane" prefHeight="412.0" prefWidth="445.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CadastroLivroController">
     <stylesheets>
         <URL value="@cadastrolivro.css" />
     </stylesheets>
    <children>
-      <Label layoutX="43.0" layoutY="114.0" text="Ano">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="38.0" layoutY="60.0" text="Título">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="39.0" layoutY="307.0" text="Editora">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="38.0" layoutY="257.0" text="Volume">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="33.0" layoutY="215.0" text="Autor(es)">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="31.0" layoutY="161.0" text="Gênero(s)">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <JFXTextField fx:id="txtTitulo" focusColor="#41e8e8" layoutX="98.0" layoutY="48.0" prefHeight="25.0" prefWidth="258.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtAno" focusColor="#41e8e8" layoutX="98.0" layoutY="102.0" prefHeight="25.0" prefWidth="97.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtGenero" focusColor="#41e8e8" layoutX="106.0" layoutY="149.0" prefHeight="25.0" prefWidth="258.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtAtor" focusColor="#41e8e8" layoutX="106.0" layoutY="203.0" prefHeight="25.0" prefWidth="258.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtVolume" focusColor="#41e8e8" layoutX="106.0" layoutY="245.0" prefHeight="25.0" prefWidth="97.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtEditora" focusColor="#41e8e8" layoutX="98.0" layoutY="295.0" prefHeight="25.0" prefWidth="258.0" unFocusColor="#1377da" />
-      <JFXButton fx:id="btnCadastrar" layoutX="342.0" layoutY="369.0" onAction="#Cadastrar" prefHeight="32.0" prefWidth="102.0" ripplerFill="#1bc9ff" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="CADASTRAR" />
+      <JFXTextField fx:id="txtTitulo" focusColor="#41e8e8" labelFloat="true" layoutX="40.0" layoutY="52.0" prefHeight="25.0" prefWidth="258.0" promptText="Título" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtAno" focusColor="#41e8e8" labelFloat="true" layoutX="40.0" layoutY="106.0" prefHeight="25.0" prefWidth="97.0" promptText="Ano" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtGenero" focusColor="#41e8e8" labelFloat="true" layoutX="40.0" layoutY="150.0" prefHeight="25.0" prefWidth="258.0" promptText="Gênero" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtAtor" focusColor="#41e8e8" labelFloat="true" layoutX="40.0" layoutY="198.0" prefHeight="25.0" prefWidth="258.0" promptText="Autor(es)" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtVolume" focusColor="#41e8e8" labelFloat="true" layoutX="40.0" layoutY="242.0" prefHeight="25.0" prefWidth="97.0" promptText="Volume" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEditora" focusColor="#41e8e8" labelFloat="true" layoutX="40.0" layoutY="292.0" prefHeight="25.0" prefWidth="258.0" promptText="Editora" unFocusColor="#1377da" />
+      <JFXButton fx:id="btnCadastrar" layoutX="306.0" layoutY="356.0" onAction="#Cadastrar" prefHeight="32.0" prefWidth="102.0" ripplerFill="#1bc9ff" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="CADASTRAR" />
    </children>
 </AnchorPane>

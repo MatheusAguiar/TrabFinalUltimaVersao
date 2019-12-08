@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="1059.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ConsultaFuncionarioController">
+<AnchorPane id="AnchorPane" prefHeight="446.0" prefWidth="1067.0" stylesheets="@consultafuncionario.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ConsultaFuncionarioController">
    <children>
       <Label layoutX="14.0" layoutY="17.0" text="Consulta Funcionários">
          <font>
@@ -21,7 +21,7 @@
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Label>
-      <TableView fx:id="tabela" layoutX="14.0" layoutY="130.0" onMouseClicked="#mouseclick" prefHeight="255.0" prefWidth="640.0" style="-fx-border-color: black;">
+      <TableView fx:id="tabela" layoutX="14.0" layoutY="130.0" onMouseClicked="#mouseclick" prefHeight="288.0" prefWidth="640.0" style="-fx-border-color: black;">
          <columns>
             <TableColumn fx:id="id" prefWidth="44.0" text="ID" />
             <TableColumn fx:id="nome" prefWidth="106.0" text="Nome" />
@@ -37,25 +37,17 @@
             <Font name="Arial Black" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="696.0" layoutY="130.0" text="ID" />
-      <Label layoutX="687.0" layoutY="163.0" text="Nome" />
-      <Label layoutX="691.0" layoutY="192.0" text="CPF" />
-      <Label layoutX="689.0" layoutY="222.0" text="Endereço" />
-      <Label layoutX="689.0" layoutY="258.0" text="Email" />
-      <Label layoutX="689.0" layoutY="293.0" text="Telefone" />
-      <Label layoutX="689.0" layoutY="329.0" text="Contrato" />
-      <Label layoutX="689.0" layoutY="362.0" text="Fim Contrato" />
       <JFXButton fx:id="btnPesquisar" layoutX="535.0" layoutY="89.0" onAction="#pesquisarPorNome" prefHeight="32.0" prefWidth="119.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="PESQUISAR" />
-      <JFXTextField fx:id="txtPesquisaFuncionario" focusColor="#41e8e8" layoutX="15.0" layoutY="79.0" prefHeight="32.0" prefWidth="500.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtId" focusColor="#41e8e8" layoutX="752.0" layoutY="126.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
-      <JFXButton fx:id="btnEditar" layoutX="972.0" layoutY="355.0" onAction="#editar" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EDITAR" />
-      <JFXButton fx:id="btnExcluir" layoutX="1045.0" layoutY="355.0" onAction="#excluir" prefHeight="32.0" prefWidth="79.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EXCLUIR" />
-      <JFXTextField fx:id="txtNome" focusColor="#41e8e8" layoutX="752.0" layoutY="151.0" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" layoutX="752.0" layoutY="180.0" onKeyReleased="#maskCpf" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtEndereco" focusColor="#41e8e8" layoutX="752.0" layoutY="210.0" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtEmail" focusColor="#41e8e8" layoutX="752.0" layoutY="246.0" prefHeight="25.0" prefWidth="231.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtTelefone" focusColor="#41e8e8" layoutX="752.0" layoutY="281.0" onKeyReleased="#maskFone" prefHeight="25.0" prefWidth="139.0" unFocusColor="#1377da" />
-      <JFXTextField fx:id="txtContrato" focusColor="#41e8e8" layoutX="752.0" layoutY="317.0" prefHeight="25.0" prefWidth="66.0" unFocusColor="#1377da" />
-      <JFXDatePicker fx:id="txtFimContrato" defaultColor="#41e8e8" layoutX="771.0" layoutY="350.0" prefHeight="25.0" prefWidth="129.0" />
+      <JFXTextField fx:id="txtPesquisaFuncionario" focusColor="#41e8e8" layoutX="15.0" layoutY="79.0" prefHeight="32.0" prefWidth="500.0" promptText="Informe o nome " unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtId" focusColor="#41e8e8" labelFloat="true" layoutX="681.0" layoutY="109.0" prefHeight="25.0" prefWidth="66.0" promptText="ID" unFocusColor="#1377da" />
+      <JFXButton fx:id="btnEditar" layoutX="893.0" layoutY="396.0" onAction="#editar" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EDITAR" />
+      <JFXButton fx:id="btnExcluir" layoutX="966.0" layoutY="396.0" onAction="#excluir" prefHeight="32.0" prefWidth="79.0" style="-fx-border-color: black; -fx-border-radius: 50%;" styleClass="mainFxmlClass" stylesheets="@consultalivro.css" text="EXCLUIR" />
+      <JFXTextField fx:id="txtNome" focusColor="#41e8e8" labelFloat="true" layoutX="681.0" layoutY="150.0" prefHeight="25.0" prefWidth="231.0" promptText="Nome" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtCpf" focusColor="#41e8e8" labelFloat="true" layoutX="681.0" layoutY="192.0" onKeyReleased="#maskCpf" prefHeight="25.0" prefWidth="231.0" promptText="CPF" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEndereco" focusColor="#41e8e8" labelFloat="true" layoutX="681.0" layoutY="230.0" prefHeight="25.0" prefWidth="231.0" promptText="Endereço" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtEmail" focusColor="#41e8e8" labelFloat="true" layoutX="681.0" layoutY="271.0" prefHeight="25.0" prefWidth="231.0" promptText="Email" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtTelefone" focusColor="#41e8e8" labelFloat="true" layoutX="678.0" layoutY="310.0" onKeyReleased="#maskFone" prefHeight="25.0" prefWidth="139.0" promptText="Fone" unFocusColor="#1377da" />
+      <JFXTextField fx:id="txtContrato" focusColor="#41e8e8" labelFloat="true" layoutX="684.0" layoutY="343.0" prefHeight="25.0" prefWidth="66.0" promptText="Contrato" unFocusColor="#1377da" />
+      <JFXDatePicker fx:id="txtFimContrato" defaultColor="#41e8e8" layoutX="683.0" layoutY="387.0" overLay="true" prefHeight="25.0" prefWidth="129.0" promptText="Fim Contrato" />
    </children>
 </AnchorPane>
