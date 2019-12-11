@@ -10,11 +10,7 @@ import UTIL.TextFieldFormatter;
 import dados.entidade.Criptografar;
 import dados.entidade.Funcionario;
 import java.net.URL;
-import java.sql.Date;
-import java.util.InputMismatchException;
 import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -75,7 +71,7 @@ public class CadastrarFuncionarioController implements Initializable {
             func.setCodigoContrato(Integer.valueOf(txtContrato.getText()));
             func.setFimContrato(String.valueOf(txtData.getValue()));
 
-            //Mandar o ator para a camada de servico
+            //Mandar o funcionário para a camada de servico
             servico.salvar(func);
 
             //Exibindo mensagem

@@ -66,7 +66,7 @@ public class LivroDAO {
         gerenciador.getTransaction().begin();
 
         //Para excluir tem que dar o merge primeiro para 
-        //sincronizar o livro do BD com o ator que foi
+        //sincronizar o livro do BD com o livro que foi
         //selecionado na tela
         livro = gerenciador.merge(livro);
 

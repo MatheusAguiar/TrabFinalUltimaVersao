@@ -7,8 +7,7 @@ package Servicos;
 
 import DAO.EmprestimoDAO;
 import dados.entidade.Emprestimo;
-import dados.entidade.Exemplar;
-import java.sql.SQLException;
+
 import java.util.List;
 
 /**
@@ -23,7 +22,7 @@ public class EmprestimoServico {
     public void salvar(Emprestimo a){
         //Fazer qualquer regra de negócio
         
-        //Mandar o ator para a camada de dados
+        //Mandar o empréstimo para a camada de dados
         //para ser salvo no banco de dados
         dao.salvar(a);
     }

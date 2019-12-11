@@ -67,7 +67,7 @@ public class CadastroLivroController implements Initializable {
             livro.setVolume(Integer.valueOf(txtVolume.getText()));
             livro.setEditora(txtEditora.getText());
 
-            //Mandar o ator para a camada de servico
+            //Mandar o livro para a camada de servico
             servico.salvar(livro);
 
             //Exibindo mensagem

@@ -14,7 +14,7 @@ import javax.persistence.TypedQuery;
 public class FuncionarioDAO {
 
     /**
-     * Salvar o ator no BD
+     * Salvar o funcionário no BD
      */
     public void salvar(Funcionario funcionario) {
 
@@ -111,7 +111,7 @@ public class FuncionarioDAO {
         gerenciador.getTransaction().begin();
 
         //Para excluir tem que dar o merge primeiro para 
-        //sincronizar o livro do BD com o ator que foi
+        //sincronizar o funcionário do BD com o funcionário que foi
         //selecionado na tela
         func = gerenciador.merge(func);
 

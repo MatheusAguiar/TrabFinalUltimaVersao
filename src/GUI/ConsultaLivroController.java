@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
 import Servicos.LivroServico;
@@ -86,9 +81,9 @@ public class ConsultaLivroController implements Initializable {
 
         configurarTabela();
 
-        //Carregue a lista de atores na tabela
+        //Carregue a lista de livros na tabela
         listarLivrosTabela();
-        // TODO
+
     }
 
     private void configurarTabela() {
@@ -114,10 +109,10 @@ public class ConsultaLivroController implements Initializable {
         //Limpando quaisquer dados anteriores
         dados.clear();
 
-        //Solicitando a camada de servico a lista de atores
+        //Solicitando a camada de servico a lista de livros
         List<Livro> livros = servico.listar();
 
-        //Transformar a lista de atores no formato que a tabela
+        //Transformar a lista de livros no formato que a tabela
         //do JavaFX aceita
         dados = FXCollections.observableArrayList(livros);
 
@@ -135,7 +130,7 @@ public class ConsultaLivroController implements Initializable {
 
         //Se tem algum livro selecionado
         if (selecionado != null) { //tem livro selecionado
-            //Pegar os dados do ator e jogar nos campos do
+            //Pegar os dados do livro e jogar nos campos do
             //formulario
             txtId.setText(
                     String.valueOf(selecionado.getId()));
@@ -146,7 +141,7 @@ public class ConsultaLivroController implements Initializable {
             txtVolume.setText(String.valueOf(selecionado.getVolume()));
             txtEditora.setText(selecionado.getEditora());
 
-        } else { //não tem ator selecionado na tabela
+        } else { //não tem livro selecionado na tabela
             mensagemErro("Selecione um livro.");
         }
     }
@@ -209,12 +204,12 @@ public class ConsultaLivroController implements Initializable {
     @FXML
     private void excluir(ActionEvent event) {
 
-        //Pegar o ator que foi selecionado na tabela
+        //Pegar o livro que foi selecionado na tabela
         selecionado = tabelaConsultaLivro.getSelectionModel()
                 .getSelectedItem();
 
-        //Verifico se tem ator selecionado
-        if (selecionado != null) { //existe ator selecionado
+        //Verifico se tem livro selecionado
+        if (selecionado != null) { //existe livro selecionado
 
             //Pegando a resposta da confirmacao do usuario
             Optional<ButtonType> btn
@@ -249,7 +244,7 @@ public class ConsultaLivroController implements Initializable {
 
         String titulo = txtPesquisaLivro.getText();
 
-        //Solicitando a camada de servico a lista de atores
+        //Solicitando a camada de servico a lista de livros
         List<Livro> livros = servico.buscarPorTitulo(titulo);
 
         //Transformar a lista de atores no formato que a tabela

@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
 import Servicos.FuncionarioServico;
 import UTIL.TextFieldFormatter;
 import com.jfoenix.controls.JFXButton;
 import dados.entidade.Funcionario;
-import dados.entidade.Usuario;
 import java.net.URL;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -131,7 +124,7 @@ public class ConsultaFuncionarioController implements Initializable {
         //Solicitando a camada de servico a lista de funcionários
         List<Funcionario> funcionarios = servico.listar();
 
-        //Transformar a lista de atores no formato que a tabela
+        //Transformar a lista de funcionarios no formato que a tabela
         //do JavaFX aceita
         dados = FXCollections.observableArrayList(funcionarios);
 
@@ -148,10 +141,10 @@ public class ConsultaFuncionarioController implements Initializable {
 
         String nome = txtPesquisaFuncionario.getText();
 
-        //Solicitando a camada de servico a lista de usuarios
+        //Solicitando a camada de servico a lista de fucionários
         List<Funcionario> funcionarios = servico.buscarPorNome(nome);
 
-        //Transformar a lista de atores no formato que a tabela
+        //Transformar a lista de funcionarios no formato que a tabela
         //do JavaFX aceita
         dados = FXCollections.observableArrayList(funcionarios);
 
@@ -170,7 +163,7 @@ public class ConsultaFuncionarioController implements Initializable {
         //Se o botão OK foi pressionado
         if (btn.get() == ButtonType.OK) {
             //Pegar os novos dados do formulário e
-            //atualizar o usuario
+            //atualizar o funcionário
             selecionado.setId(Integer.valueOf(txtId.getText()));
             selecionado.setNome(txtNome.getText());
             selecionado.setCpf(txtCpf.getText());
@@ -194,12 +187,12 @@ public class ConsultaFuncionarioController implements Initializable {
     @FXML
     private void excluir(ActionEvent event) {
 
-        //Pegar o ator que foi selecionado na tabela
+        //Pegar o funcionários que foi selecionado na tabela
         selecionado = tabela.getSelectionModel()
                 .getSelectedItem();
 
-        //Verifico se tem ator selecionado
-        if (selecionado != null) { //existe ator selecionado
+        //Verifico se tem funcionário selecionado
+        if (selecionado != null) { //existe funcionarios selecionado
 
             //Pegando a resposta da confirmacao do usuario
             Optional<ButtonType> btn
@@ -227,31 +220,29 @@ public class ConsultaFuncionarioController implements Initializable {
 
     @FXML
     private void mouseclick(MouseEvent event) {
-        
-        //Pegar o usuario que foi selecionado na tabela
+
+        //Pegar o funcionário que foi selecionado na tabela
         selecionado = tabela.getSelectionModel()
                 .getSelectedItem();
 
-        //Se tem algum usuario selecionado
-        if (selecionado != null) { //tem usuario selecionado
-            //Pegar os dados do usuario e jogar nos campos do
+        //Se tem algum funcionario selecionado
+        if (selecionado != null) { //tem funcionario selecionado
+            //Pegar os dados do funcionario e jogar nos campos do
             //formulario
             txtId.setText(
                     String.valueOf(selecionado.getId()));
-            txtNome.setText(selecionado.getNome());            
+            txtNome.setText(selecionado.getNome());
             txtCpf.setText(selecionado.getCpf());
             txtEndereco.setText(selecionado.getEndereco());
             txtEmail.setText(selecionado.getEmail());
             txtTelefone.setText(selecionado.getTelefone());
             txtContrato.setText(String.valueOf(selecionado.getCodigoContrato()));
-            txtFimContrato.setValue(LocalDate.parse(selecionado.getFimContrato()));           
-                      
-            
+            txtFimContrato.setValue(LocalDate.parse(selecionado.getFimContrato()));
 
-        } else { //não tem usuario selecionado na tabela
+        } else { //não tem funcionario selecionado na tabela
             mensagemErro("Selecione um funcionário.");
         }
-        
+
     }
 
     private Optional<ButtonType> mensagemDeConfirmacao(
@@ -281,8 +272,8 @@ public class ConsultaFuncionarioController implements Initializable {
 
     @FXML
     private void maskCpf(KeyEvent event) {
-        
-         TextFieldFormatter tff = new TextFieldFormatter();
+
+        TextFieldFormatter tff = new TextFieldFormatter();
         tff.setMask("###.###.###-##");
         tff.setCaracteresValidos("0123456789");
         tff.setTf(txtCpf);
@@ -291,7 +282,7 @@ public class ConsultaFuncionarioController implements Initializable {
 
     @FXML
     private void maskFone(KeyEvent event) {
-        
+
         TextFieldFormatter tff = new TextFieldFormatter();
         tff.setMask("(##)####-####");
         tff.setCaracteresValidos("0123456789");

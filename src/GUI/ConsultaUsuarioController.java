@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
-
 
 import Servicos.UsuarioServico;
 import UTIL.TextFieldFormatter;
@@ -127,15 +121,15 @@ public class ConsultaUsuarioController implements Initializable {
                 new PropertyValueFactory("ativo"));
 
     }//configurarTabela    
-    
-     private void listarUsuariosTabela() {
+
+    private void listarUsuariosTabela() {
         //Limpando quaisquer dados anteriores
         dados.clear();
 
-        //Solicitando a camada de servico a lista de atores
+        //Solicitando a camada de servico a lista de usuarios
         List<Usuario> usuarios = servico.listar();
 
-        //Transformar a lista de atores no formato que a tabela
+        //Transformar a lista de usuarios no formato que a tabela
         //do JavaFX aceita
         dados = FXCollections.observableArrayList(usuarios);
 
@@ -146,7 +140,7 @@ public class ConsultaUsuarioController implements Initializable {
 
     @FXML
     private void pesquisarPorNome(ActionEvent event) {
-        
+
         //Limpando quaisquer dados anteriores
         dados.clear();
 
@@ -165,7 +159,7 @@ public class ConsultaUsuarioController implements Initializable {
 
     @FXML
     private void editar(ActionEvent event) {
-                       
+
         Optional<ButtonType> btn
                 = mensagemDeConfirmacao("Deseja mesmo salvar as alterações?",
                         "EDITAR");
@@ -181,16 +175,16 @@ public class ConsultaUsuarioController implements Initializable {
             selecionado.setEndereco(txtEndereco.getText());
             selecionado.setEmail(txtEmail.getText());
             selecionado.setTelefone(txtTelefone.getText());
-             if (rbSim.isSelected()) {
+            if (rbSim.isSelected()) {
 
-            selecionado.setAtivo(true);
-        }
+                selecionado.setAtivo(true);
+            }
 
-        if (rbNao.isSelected()) {
+            if (rbNao.isSelected()) {
 
-            selecionado.setAtivo(false);
-        }
-           
+                selecionado.setAtivo(false);
+            }
+
             //Mandando pra camada de serviço salvar as alterações
             servico.editar(selecionado);
 
@@ -200,17 +194,17 @@ public class ConsultaUsuarioController implements Initializable {
             //Chama o metodo para atualizar a tabela
             listarUsuariosTabela();
         }
-        
+
     }
 
     @FXML
     private void excluir(ActionEvent event) {
-        
-         //Pegar o ator que foi selecionado na tabela
+
+        //Pegar o usuario que foi selecionado na tabela
         selecionado = tabela.getSelectionModel()
                 .getSelectedItem();
 
-        //Verifico se tem ator selecionado
+        //Verifico se tem usuario selecionado
         if (selecionado != null) { //existe ator selecionado
 
             //Pegando a resposta da confirmacao do usuario
@@ -236,12 +230,11 @@ public class ConsultaUsuarioController implements Initializable {
             mensagemErro("Selecione um livro.");
         }
 
-        
     }
-    
-     @FXML
+
+    @FXML
     private void mouseclick(MouseEvent event) {
-        
+
         //Pegar o usuario que foi selecionado na tabela
         selecionado = tabela.getSelectionModel()
                 .getSelectedItem();
@@ -253,30 +246,28 @@ public class ConsultaUsuarioController implements Initializable {
             txtId.setText(
                     String.valueOf(selecionado.getId()));
             txtContrato.setText(String.valueOf(selecionado.getCodigoContrato()));
-            txtNome.setText(selecionado.getNome());            
+            txtNome.setText(selecionado.getNome());
             txtCpf.setText(selecionado.getCpf());
             txtEndereco.setText(selecionado.getEndereco());
             txtEmail.setText(selecionado.getEmail());
             txtTelefone.setText(selecionado.getTelefone());
-           if (rbSim.isSelected()) {
+            if (rbSim.isSelected()) {
 
-            selecionado.setAtivo(true);
-        }
+                selecionado.setAtivo(true);
+            }
 
-        if (rbNao.isSelected()) {
+            if (rbNao.isSelected()) {
 
-            selecionado.setAtivo(false);
-        }
-            
+                selecionado.setAtivo(false);
+            }
 
         } else { //não tem usuario selecionado na tabela
             mensagemErro("Selecione um usuario.");
         }
-        
-        
+
     }
-    
-      private Optional<ButtonType> mensagemDeConfirmacao(
+
+    private Optional<ButtonType> mensagemDeConfirmacao(
             String mensagem, String titulo) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(titulo);
@@ -292,7 +283,7 @@ public class ConsultaUsuarioController implements Initializable {
         alerta.setContentText(m);
         alerta.showAndWait();
     }
-    
+
     public void mensagemErro(String m) {
         Alert alerta = new Alert(Alert.AlertType.ERROR);
         alerta.setTitle("ERRO!");
@@ -303,8 +294,8 @@ public class ConsultaUsuarioController implements Initializable {
 
     @FXML
     private void maskCpf(KeyEvent event) {
-        
-         TextFieldFormatter tff = new TextFieldFormatter();
+
+        TextFieldFormatter tff = new TextFieldFormatter();
         tff.setMask("###.###.###-##");
         tff.setCaracteresValidos("0123456789");
         tff.setTf(txtCpf);
@@ -313,14 +304,12 @@ public class ConsultaUsuarioController implements Initializable {
 
     @FXML
     private void maskFone(KeyEvent event) {
-        
-         TextFieldFormatter tff = new TextFieldFormatter();
+
+        TextFieldFormatter tff = new TextFieldFormatter();
         tff.setMask("(##)####-####");
         tff.setCaracteresValidos("0123456789");
         tff.setTf(txtTelefone);
         tff.formatter();
     }
-
-   
 
 }

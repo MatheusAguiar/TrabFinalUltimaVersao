@@ -74,7 +74,7 @@ public class EmprestimoDAO {
         TypedQuery consulta = gerenciador.createQuery(
                 "Select emprestimo from Emprestimo emprestimo WHERE emprestimo.devolvido=true", Emprestimo.class);
 
-        //Retornar a lista de exemplares
+        //Retornar a lista de emprestimos
         return consulta.getResultList();
 
     }
@@ -91,7 +91,7 @@ public class EmprestimoDAO {
         
         consulta.setParameter("dataini",  dataini +  "%");
         consulta.setParameter("datafim",  datafim + "%");
-        //Retornar a lista de exemplares
+        //Retornar a lista de emprestimos
         return consulta.getResultList();
 
     }

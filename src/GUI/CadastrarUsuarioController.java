@@ -5,10 +5,8 @@
  */
 package GUI;
 
-import DAO.UsuarioDAO;
 import Servicos.UsuarioServico;
 import UTIL.TextFieldFormatter;
-import com.jfoenix.controls.JFXButton;
 import dados.entidade.Usuario;
 import java.net.URL;
 import java.util.ResourceBundle;

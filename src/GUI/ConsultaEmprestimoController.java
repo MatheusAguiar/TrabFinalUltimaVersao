@@ -106,10 +106,10 @@ public class ConsultaEmprestimoController implements Initializable {
 
         String nome = txtPesquisa.getText();
 
-        //Solicitando a camada de servico a lista de usuarios
+        //Solicitando a camada de servico a lista de funcionários
         List<Emprestimo> emprestimos = servico.pesquisaNomeFunc(nome);
 
-        //Transformar a lista de atores no formato que a tabela
+        //Transformar a lista de funcionários no formato que a tabela
         //do JavaFX aceita
         dados = FXCollections.observableArrayList(emprestimos);
 
@@ -124,10 +124,10 @@ public class ConsultaEmprestimoController implements Initializable {
 
         String nome = txtPesquisa.getText();
 
-        //Solicitando a camada de servico a lista de usuarios
+        //Solicitando a camada de servico a lista de funcionarios
         List<Emprestimo> emprestimos = servico.pesquisaNomeUser(nome);
 
-        //Transformar a lista de atores no formato que a tabela
+        //Transformar a lista de funcionarios no formato que a tabela
         //do JavaFX aceita
         dados = FXCollections.observableArrayList(emprestimos);
 
@@ -170,7 +170,7 @@ public class ConsultaEmprestimoController implements Initializable {
         //Solicitando a camada de servico a lista de funcionários
         List<Emprestimo> emprestimos = servico.listar();
 
-        //Transformar a lista de atores no formato que a tabela
+        //Transformar a lista de funcionários no formato que a tabela
         //do JavaFX aceita
         dados = FXCollections.observableArrayList(emprestimos);
 
@@ -186,7 +186,7 @@ public class ConsultaEmprestimoController implements Initializable {
         //Solicitando a camada de servico a lista de funcionários
         List<Emprestimo> emprestimos = servico.listarEmprestimosDevolvidos();
 
-        //Transformar a lista de atores no formato que a tabela
+        //Transformar a lista de funcionários no formato que a tabela
         //do JavaFX aceita
         dados = FXCollections.observableArrayList(emprestimos);
 
